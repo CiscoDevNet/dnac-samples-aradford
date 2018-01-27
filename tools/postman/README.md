@@ -15,7 +15,7 @@ You need to import the collection as well as the environment.  You can import th
 You can also download them and import from file/folder.
 
 * https://raw.githubusercontent.com/CiscoDevNet/dnac-samples-aradford/master/tools/postman/DNAC-Sandbox.postman_environment.json
-* https://raw.githubusercontent.com/CiscoDevNet/dnac-samples-aradford/master/tools/postman/DNAC-Sandbox Proxy.postman_environment.json
+* https://raw.githubusercontent.com/CiscoDevNet/dnac-samples-aradford/master/tools/postman/DNAC-SandboxProxy.postman_environment.json
 * https://raw.githubusercontent.com/CiscoDevNet/dnac-samples-aradford/master/tools/postman/01-DNAC-Sandbox.postman_collection.json
 
 ![alt tag](images/importing.png)
@@ -23,7 +23,7 @@ You can also download them and import from file/folder.
 #Getting Started
 After the import has completed, you will need to select the environment.  You will notice there are two options.
 * DNAC-Sandbox.postman_environment - this is a base environment that just talks to DNAC on port 443.
-* DNAC-Sandbox Proxy.postman_environment - this talks to a proxy.  The reason for doing this is that devnetuser is read-only
+* DNAC-SandboxProxy.postman_environment - this talks to a proxy.  The reason for doing this is that devnetuser is read-only
 so has no way to execute PUT/POST/DELETE
 
 Once you have done this, you need to first run the request to get a Ticket.  This request is in the **1.Ticket folder**.
