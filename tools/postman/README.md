@@ -1,4 +1,4 @@
-#Introduction
+# Introduction
 
 This is a collection and environment for Cisco Digital Network Architecture Controller (DNAC)
 
@@ -10,7 +10,7 @@ API there is a proxy running on port 8080.
 To use these examples, you need the latest version of postman (3.2.0).
 It has free Jetpacks support.  This is required for linking requests.
 
-#Importing
+# Importing
 You need to import the collection as well as the environment.  You can import the raw git files using the **From URL** option, as seen below.
 You can also download them and import from file/folder.
 
@@ -20,7 +20,7 @@ You can also download them and import from file/folder.
 
 ![alt tag](images/importing.png)
 
-#Getting Started
+# Getting Started
 After the import has completed, you will need to select the environment.  You will notice there are two options.
 * DNAC-Sandbox.postman_environment - this is a base environment that just talks to DNAC on port 443.
 * DNAC-SandboxProxy.postman_environment - this talks to a proxy.  The reason for doing this is that devnetuser is read-only
@@ -39,7 +39,7 @@ You can also check on the UI for the controller to see the effect of the request
 ![alt tag](images/network-device-get.png)
 
 
-#More Advanced API Calls
+# More Advanced API Calls
 
 Most of the calls on the controller are asynchronous (PUT/POST/DELETE).  When you execute these calls, they will always
 succeed and return a taskId.  Take a look at 3.Tags and Locations.  Select and run the second request which is a POST, 
@@ -117,7 +117,7 @@ Again, you will get a taskId.  You can use any of the task GET requests.
 Please make sure you clean up by either deleting through the UI or the POSTMAN window.
 
 
-#Next Steps
+# Next Steps
 You can create your own environment, or modify the existing one to point to your own server.
 
 
