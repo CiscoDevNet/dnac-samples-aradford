@@ -16,13 +16,13 @@ if __name__ == "__main__":
         print(json.dumps(response, indent=2))
     else:
         response = list_network_devices()
-        print("{0:17}{1:14}{2:12}{3:18}{4:12}{5:16}{6:15}".
+        print("{0:42}{1:17}{2:12}{3:18}{4:12}{5:16}{6:15}".
                   format("hostname","mgmt IP","serial",
                          "platformId","SW Version","role","Uptime"))
 
         for device in response['response']:
             uptime = "N/A" if device['upTime'] is None else device['upTime']
-            print("{0:17}{1:14}{2:12}{3:18}{4:12}{5:16}{6:15}".
+            print("{0:42}{1:17}{2:12}{3:18}{4:12}{5:16}{6:15}".
                   format(device['hostname'],
                          device['managementIpAddress'],
                          device['serialNumber'],

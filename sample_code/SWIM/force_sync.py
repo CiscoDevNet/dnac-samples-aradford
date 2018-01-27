@@ -5,16 +5,16 @@ import json
 import logging
 from argparse import ArgumentParser
 
-from util import get_url, post_and_wait, tagmapping, delete_and_wait
+from util import get_url, post_and_wait, tagmapping, put_and_wait
 
 
-def delete_file(file, *deviceIds):
+def delete_file(file, deviceIds):
 
-    # need to check both filesystems for stack.
-    for deviceId in deviceIds:
-        url='device-image/device/{0}/file/{1}'.format(deviceId, file)
-        response = delete_and_wait(url)
-        print(response)
+    payload= deviceIds
+    url='network-device/sync?forceSync=true'
+
+    response = put_and_wait(url, payload)
+    print(response)
 
 
 if __name__ ==  "__main__":
@@ -27,4 +27,4 @@ if __name__ ==  "__main__":
     args = parser.parse_args()
 
     deviceIds = tagmapping(args.tag)
-    delete_file(args.image, *deviceIds)
+    delete_file(args.image, deviceIds)

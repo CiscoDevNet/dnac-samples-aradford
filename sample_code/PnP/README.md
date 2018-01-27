@@ -7,9 +7,10 @@ You would just need to change the namespace from "config" to "image"
 
 ```
 $ ./list_files.py 
-Getting https://adam-dnac/api/v1/file/namespace/config
+Getting https://sandboxdnac.cisco.com:8080/api/v1/file/namespace/config
 name                          :fileFormat      fileSize   id                              
-ams01-rtr01.txt               :text/plain      530        90a0e4df-93fe-4a7f-884e-0b5b7d8a08d7
+ap.json                       :application/json 103        107c6310-c31b-4c50-875b-0e4483115177
+config.txt                    :text/plain      17         38d2d4c0-1a48-49dc-a249-c83b3fdfc7b1
 ```
 
 
@@ -17,11 +18,9 @@ There is also an example of listing of projects
 
 ```
 $ ./list_projects.py 
-Getting https://adam-dnac/api/v1/pnp-project
+Getting https://sandboxdnac.cisco.com:8080/api/v1/pnp-project
 siteName         state           deviceCount  id                              
-JOep             PRE_PROVISIONED            2 3dadbcd2-1ba6-4d4b-8653-3a1f18e2fb25
-JoshProject      PRE_PROVISIONED            0 71b20a6f-b841-48db-8b60-0e0c8d2cbc1f
-test123          PRE_PROVISIONED            0 2b51a87c-0964-4589-96b8-fbeb5fdc3000
+Melbourne        PRE_PROVISIONED            1 e553a1a7-57c8-451a-8041-2832853c2ec9
 ```
 
 # Config Template Automation
@@ -84,38 +83,38 @@ The output of these files is in the [work_files/configs](work_files/configs) dir
 Once the config files have been create, they need to be uploaded to the controller.  "upload_file.py -a" will do this.
 ``` bash
 $ ./upload_file.py -a
-POST https://sandboxapic.cisco.com/api/v1/file/config
+POST https://sandboxdnac.cisco.com:8080/api/v1/file/config
 {
-  "downloadPath": "/file/a6f40b82-433e-48ac-b5af-c5650148f663", 
+  "downloadPath": "/file/211dbd99-45c3-4569-98fc-42a282e2e393", 
   "name": "sw01-config-6130", 
-  "sha1Checksum": "7262d0f18380878b1b71898aff364c57cdb9e5fe", 
+  "sha1Checksum": "5a3c2140da71480762d2ca4224494bd577fd68ad", 
   "nameSpace": "config", 
-  "id": "a6f40b82-433e-48ac-b5af-c5650148f663", 
-  "fileSize": "136", 
   "fileFormat": "text/plain", 
-  "md5Checksum": "d5d193eaeaa6d7a928215b6068d6d6dc"
+  "fileSize": "150", 
+  "id": "211dbd99-45c3-4569-98fc-42a282e2e393", 
+  "md5Checksum": "83ccf6fa8655c3c3e1009d4e4143625d"
 }
-POST https://sandboxapic.cisco.com/api/v1/file/config
+POST https://sandboxdnac.cisco.com:8080/api/v1/file/config
 {
-  "downloadPath": "/file/99ff9c54-38f8-436f-89e6-8d15bc6fe926", 
+  "downloadPath": "/file/3ae7f9eb-77a1-4da1-a1fe-3d83aa1d5477", 
   "name": "sw02-config-6130", 
-  "sha1Checksum": "656aee9f5fe7b0c6d70e97a8821eb1c01e6ea92f", 
+  "sha1Checksum": "c3bec74b7a94bcd7cf2d06bdbd529ee28106a83e", 
   "nameSpace": "config", 
-  "id": "99ff9c54-38f8-436f-89e6-8d15bc6fe926", 
-  "fileSize": "136", 
   "fileFormat": "text/plain", 
-  "md5Checksum": "e69890b5a6c6089d4bceae786e03c2ce"
+  "fileSize": "150", 
+  "id": "3ae7f9eb-77a1-4da1-a1fe-3d83aa1d5477", 
+  "md5Checksum": "4e48aa8337ef4042fc533da508fa5ebd"
 }
-POST https://sandboxapic.cisco.com/api/v1/file/config
+POST https://sandboxdnac.cisco.com:8080/api/v1/file/config
 {
-  "downloadPath": "/file/e928ee52-81f2-44bc-9a90-c759602c23f1", 
+  "downloadPath": "/file/cc39185a-623a-4f07-a18e-a79533cd5e90", 
   "name": "sw03-config-6130", 
-  "sha1Checksum": "63ea1eb2ff210290a5718c90ca7deb946f97c8bd", 
+  "sha1Checksum": "fdd42407fbbc1a1ca0b17c094faf791666d166f1", 
   "nameSpace": "config", 
-  "id": "e928ee52-81f2-44bc-9a90-c759602c23f1", 
-  "fileSize": "136", 
   "fileFormat": "text/plain", 
-  "md5Checksum": "45295dff681e114a611f3162d813428b"
+  "fileSize": "150", 
+  "id": "cc39185a-623a-4f07-a18e-a79533cd5e90", 
+  "md5Checksum": "f3cf86ae93fe3527ad27cd4ac5f4e1c0"
 }
 
 ```
@@ -129,31 +128,31 @@ You can use "list_files.py" to take a look at the files created.
 The next step is to create projects for the rules.  The "create_project.py -a" command does this.
 ``` bash
 $ ./create_project.py -a
-POST URL https://sandboxapic.cisco.com/api/v1/pnp-project
+POST URL https://sandboxdnac.cisco.com:8080/api/v1/pnp-project
 Creating project Melbourne-6130
-Waiting for Task 27e4dda0-dc46-4d94-89aa-0e53dba81006
+Waiting for Task 1251de55-9aae-4442-922a-def5b408a5c7
 {
-  "rootId": "27e4dda0-dc46-4d94-89aa-0e53dba81006", 
+  "rootId": "1251de55-9aae-4442-922a-def5b408a5c7", 
   "serviceType": "Ztd Service", 
-  "id": "27e4dda0-dc46-4d94-89aa-0e53dba81006", 
-  "version": 1466501686726, 
-  "startTime": 1466501686726, 
-  "progress": "{\"message\":\"Success creating new site\",\"siteId\":\"a375afc3-a46c-48aa-a612-3598f465435d\"}", 
-  "endTime": 1466501686738, 
-  "isError": false
+  "isError": false, 
+  "version": 1516265436224, 
+  "startTime": 1516265436224, 
+  "progress": "{\"message\":\"Success creating new site\",\"siteId\":\"166c48c8-b116-49f1-8dc7-7253d36282fb\"}", 
+  "endTime": 1516265436306, 
+  "id": "1251de55-9aae-4442-922a-def5b408a5c7"
 }
-POST URL https://sandboxapic.cisco.com/api/v1/pnp-project
+POST URL https://sandboxdnac.cisco.com:8080/api/v1/pnp-project
 Creating project Sydney-6130
-Waiting for Task bbc2b13f-b0ac-4ef1-94b5-d348ab107d34
+Waiting for Task 8ebd5b0c-05e8-42d0-8394-5ac8c9b91710
 {
-  "rootId": "bbc2b13f-b0ac-4ef1-94b5-d348ab107d34", 
+  "rootId": "8ebd5b0c-05e8-42d0-8394-5ac8c9b91710", 
   "serviceType": "Ztd Service", 
-  "id": "bbc2b13f-b0ac-4ef1-94b5-d348ab107d34", 
-  "version": 1466501689258, 
-  "startTime": 1466501689258, 
-  "progress": "{\"message\":\"Success creating new site\",\"siteId\":\"fbc3338d-9bba-47e8-8905-b5130aa5af9a\"}", 
-  "endTime": 1466501689276, 
-  "isError": false
+  "isError": false, 
+  "version": 1516265449545, 
+  "startTime": 1516265449545, 
+  "progress": "{\"message\":\"Success creating new site\",\"siteId\":\"b346dca8-dd2f-46e0-b04c-3a83bcfb1fb1\"}", 
+  "endTime": 1516265449579, 
+  "id": "8ebd5b0c-05e8-42d0-8394-5ac8c9b91710"
 }
 
 ```
@@ -166,73 +165,74 @@ I now create rules for the devices.  This will associate the configuration file 
 
 ``` bash
 $ ./create_rule.py -a
-Getting https://sandboxapic.cisco.com/api/v1/file/namespace/config
-GET: https://sandboxapic.cisco.com/api/v1/pnp-project?siteName=Sydney-6130&offset=1&limit=10
-POST URL https://sandboxapic.cisco.com/api/v1/pnp-project/fbc3338d-9bba-47e8-8905-b5130aa5af9a/device
+Getting https://sandboxdnac.cisco.com:8080/api/v1/file/namespace/config
+GET: https://sandboxdnac.cisco.com:8080/api/v1/pnp-project?siteName=Sydney-6130&offset=1&limit=10
+POST URL https://sandboxdnac.cisco.com:8080/api/v1/pnp-project/b346dca8-dd2f-46e0-b04c-3a83bcfb1fb1/device
 [
   {
     "platformId": "WS-C2960X-48FPD-L", 
     "hostName": "sw01", 
     "serialNumber": "12345676130", 
-    "configId": "a6f40b82-433e-48ac-b5af-c5650148f663", 
+    "configId": "211dbd99-45c3-4569-98fc-42a282e2e393", 
     "pkiEnabled": true
   }
 ]
-Waiting for Task 44c59536-fd1e-40f5-bf46-60211949aae2
+Waiting for Task 10a07cc2-b8a1-4673-bcad-7a6219975064
 {
-  "rootId": "44c59536-fd1e-40f5-bf46-60211949aae2", 
+  "rootId": "10a07cc2-b8a1-4673-bcad-7a6219975064", 
   "serviceType": "Ztd Service", 
-  "id": "44c59536-fd1e-40f5-bf46-60211949aae2", 
-  "version": 1466501935290, 
-  "startTime": 1466501935290, 
-  "progress": "{\"message\":\"Success creating new site device(rule)\",\"ruleId\":\"382f3be4-5632-41d1-9853-4a46561b0b73\"}", 
-  "endTime": 1466501935334, 
-  "isError": false
+  "isError": false, 
+  "version": 1516265502279, 
+  "startTime": 1516265502279, 
+  "progress": "{\"message\":\"Success creating new site device(rule)\",\"ruleId\":\"65360a72-70eb-4beb-8e3e-b60a13a5ed14\"}", 
+  "endTime": 1516265502523, 
+  "id": "10a07cc2-b8a1-4673-bcad-7a6219975064"
 }
-GET: https://sandboxapic.cisco.com/api/v1/pnp-project?siteName=Sydney-6130&offset=1&limit=10
-POST URL https://sandboxapic.cisco.com/api/v1/pnp-project/fbc3338d-9bba-47e8-8905-b5130aa5af9a/device
+GET: https://sandboxdnac.cisco.com:8080/api/v1/pnp-project?siteName=Sydney-6130&offset=1&limit=10
+POST URL https://sandboxdnac.cisco.com:8080/api/v1/pnp-project/b346dca8-dd2f-46e0-b04c-3a83bcfb1fb1/device
 [
   {
     "platformId": "WS-C2960X-48FPD-L", 
     "hostName": "sw02", 
     "serialNumber": "22345676130", 
-    "configId": "99ff9c54-38f8-436f-89e6-8d15bc6fe926", 
+    "configId": "3ae7f9eb-77a1-4da1-a1fe-3d83aa1d5477", 
     "pkiEnabled": true
   }
 ]
-Waiting for Task 6aa40814-086b-4798-b6b4-45ed41427f8a
+Waiting for Task 2c8d970c-7ea0-461e-86f6-198c1bf54f13
 {
-  "rootId": "6aa40814-086b-4798-b6b4-45ed41427f8a", 
+  "rootId": "2c8d970c-7ea0-461e-86f6-198c1bf54f13", 
   "serviceType": "Ztd Service", 
-  "id": "6aa40814-086b-4798-b6b4-45ed41427f8a", 
-  "version": 1466501939737, 
-  "startTime": 1466501939737, 
-  "progress": "{\"message\":\"Success creating new site device(rule)\",\"ruleId\":\"afe93afe-9dc2-42a3-9a29-f505ec4eb2ba\"}", 
-  "endTime": 1466501939785, 
-  "isError": false
+  "isError": false, 
+  "version": 1516265519091, 
+  "startTime": 1516265519091, 
+  "progress": "{\"message\":\"Success creating new site device(rule)\",\"ruleId\":\"8741fb5d-59b4-42c0-aeee-4cd8b9a2a337\"}", 
+  "endTime": 1516265519252, 
+  "id": "2c8d970c-7ea0-461e-86f6-198c1bf54f13"
 }
-GET: https://sandboxapic.cisco.com/api/v1/pnp-project?siteName=Melbourne-6130&offset=1&limit=10
-POST URL https://sandboxapic.cisco.com/api/v1/pnp-project/a375afc3-a46c-48aa-a612-3598f465435d/device
+GET: https://sandboxdnac.cisco.com:8080/api/v1/pnp-project?siteName=Melbourne-6130&offset=1&limit=10
+POST URL https://sandboxdnac.cisco.com:8080/api/v1/pnp-project/166c48c8-b116-49f1-8dc7-7253d36282fb/device
 [
   {
     "platformId": "WS-C2960X-48FPD-L", 
     "hostName": "sw03", 
     "serialNumber": "32345676130", 
-    "configId": "e928ee52-81f2-44bc-9a90-c759602c23f1", 
+    "configId": "cc39185a-623a-4f07-a18e-a79533cd5e90", 
     "pkiEnabled": true
   }
 ]
-Waiting for Task b6403848-e5f7-4ce4-a95c-87ef379d910d
+Waiting for Task 234290c5-1ca4-40b0-a6cf-0f4c56b0fa4d
 {
-  "rootId": "b6403848-e5f7-4ce4-a95c-87ef379d910d", 
+  "rootId": "234290c5-1ca4-40b0-a6cf-0f4c56b0fa4d", 
   "serviceType": "Ztd Service", 
-  "id": "b6403848-e5f7-4ce4-a95c-87ef379d910d", 
-  "version": 1466501944693, 
-  "startTime": 1466501944693, 
-  "progress": "{\"message\":\"Success creating new site device(rule)\",\"ruleId\":\"20eabd09-2af7-40ac-9801-10b881b83f9a\"}", 
-  "endTime": 1466501944730, 
-  "isError": false
+  "isError": false, 
+  "version": 1516265535256, 
+  "startTime": 1516265535256, 
+  "progress": "{\"message\":\"Success creating new site device(rule)\",\"ruleId\":\"4a7b6a33-035c-4e8c-b822-27a9e83db84d\"}", 
+  "endTime": 1516265535323, 
+  "id": "234290c5-1ca4-40b0-a6cf-0f4c56b0fa4d"
 }
+
 
 ```
 This is slightly more complex as I need to do a REST API call to map the project_name to a project_id and the file_name to file_id.
