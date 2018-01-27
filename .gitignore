@@ -1,0 +1,17 @@
+# OSX Related
+.DS_STORE
+
+# .pycharm
+.idea/
+
+# Python Related
+__pycache__/
+*.py[cod]
+
+# PyTest Related
+.cache/
+
+# Build Related
+build/
+dist/
+*.egg-info/
