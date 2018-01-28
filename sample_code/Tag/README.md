@@ -5,6 +5,8 @@ This tool allows manipulation of device tags.  A device can have many tags.  Tag
 * command_runner
 * template execution
 
+Tags can also be applied to interfaces.
+
 ## Examples
 
 ### List of tags

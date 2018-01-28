@@ -28,7 +28,7 @@ The scripts in this directory can be used to automate the deployment of PnP conf
 designed for educational purposes.  It exposes most of the mechanics under the covers and covers each of the four steps 
 in isolation to aid the learning process.
 
-A number of the resources (filename, projectname, serialnumber) need to be unique on APIC-EM.  To allow multiple people to
+A number of the resources (filename, projectname, serialnumber) need to be unique on DNAC.  To allow multiple people to
 use this lab with the sandbox controller, a function called "name_wrap" is used to append a 4 digit number to filename and project names.
 This suffix is stored in the suffix.py file.  NOTE: Serial numbers need to be 11 digits, so name_wrap just replaces the last 4 digits of the
 serial number.
@@ -161,7 +161,7 @@ if the creation was successful.
 
 ## Create Rules
 I now create rules for the devices.  This will associate the configuration file created in step #1, uploaded in Step #2, in a rule
- defined in the project created in step #3.  "create_rule.py -a" will create the rules on APIC-EM.
+ defined in the project created in step #3.  "create_rule.py -a" will create the rules on DNAC.
 
 ``` bash
 $ ./create_rule.py -a
