@@ -1,5 +1,9 @@
 ## A tool to manuiplate device tags
-This tool allows manipulation of device tags.
+This tool allows manipulation of device tags.  A device can have many tags.  Tags are useful for grouping devices for 
+* software distribution
+* software activation
+* command_runner
+* template execution
 
 ## Examples
 

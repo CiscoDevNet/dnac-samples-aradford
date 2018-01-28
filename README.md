@@ -30,7 +30,7 @@ uniq is a client library for DNAC.  It abstracts the REST API endpoints and allo
 
 I have modified the uniq library from APIC-EM to work with DNAC.  This is not the officially supported version.
 
-- uniq contains the client librarry code.  You will need to install this to use the examples.
+- uniq contains the client library code.  You will need to install this to use the examples.
 - code_samples contains examples for PnP and other simple use cases
 
 

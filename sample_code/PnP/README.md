@@ -246,7 +246,7 @@ Similarly you can "list_project.py" to see the list of projects or "list_project
 Once you are done, you can run the "delete_file.py -a" and the "delete_project.py -a" to remove the files and the projects from the controller.
 NOTE: you do not have to remove the rules as the arguments provided to the "delete_project" API call will remove all rules.
 
-##Next Steps
+## Next Steps
 This is an educational example where the steps have been broken out for clarity.  This does require some extra work in the code, as I have to lookup 
 file and project names to resolve their UUID, where as an "all-in-one" version would keep the UUID of the resource that has been created.
 
