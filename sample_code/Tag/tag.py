@@ -35,7 +35,7 @@ def id2device(deviceId):
 def tag2id(tagName):
     response = get_url('tag')
     print (response)
-    return[tag['id'] for tag in response['response'] if tag['tag'].encode('UTF-8') == tagName][0]
+    return[tag['id'] for tag in response['response'] if tag['tag'].encode('UTF-8') == tagName or tag['tag'] == tagName][0]
 
 def assign_tag(tag, device):
     deviceId = device2id(device)
