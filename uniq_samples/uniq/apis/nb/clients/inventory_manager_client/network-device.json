@@ -1,0 +1,3348 @@
+{
+    "apiVersion": "1.0",
+    "models": {
+        "NetworkManagementInfo": {
+            "description": "",
+            "id": "NetworkManagementInfo",
+            "properties": {
+                "siteManagementInfo": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "SiteManagementInfo"
+                    }
+                },
+                "networkDeviceManagementInfo": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "NetworkDeviceManagementInfo"
+                    }
+                }
+            },
+            "extends": ""
+        },
+        "NetworkDeviceManagementInfo": {
+            "description": "",
+            "id": "NetworkDeviceManagementInfo",
+            "extends": "",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "Type of device as switch, router, wireless lan controller, accesspoints"
+                },
+                "managementIpAddress": {
+                    "type": "string",
+                    "description": "IP address of the device"
+                },
+                "series": {
+                    "type": "string",
+                    "description": "Device series"
+                },
+                "family": {
+                    "type": "string",
+                    "description": "Family of device as switch, router, wireless lan controller, accesspoints"
+                },
+                "hostname": {
+                    "type": "string",
+                    "description": "Device name"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "Unique identifier of device"
+                },
+                "credentials": {
+                    "description": "Credential info",
+                    "$ref": "object"
+                }
+            },
+            "required": [
+                "family",
+                "id",
+                "type",
+                "series",
+                "hostname",
+                "credentials",
+                "managementIpAddress"
+            ]
+        },
+        "TaskIdResponse": {
+            "description": "",
+            "id": "TaskIdResponse",
+            "properties": {
+                "taskId": {
+                    "$ref": "TaskId"
+                },
+                "url": {
+                    "type": "string"
+                }
+            },
+            "extends": ""
+        },
+        "ModuleResult": {
+            "description": "",
+            "id": "ModuleResult",
+            "properties": {
+                "version": {
+                    "type": "string"
+                },
+                "response": {
+                    "$ref": "ModuleDTO"
+                }
+            },
+            "extends": ""
+        },
+        "CountResult": {
+            "description": "",
+            "id": "CountResult",
+            "properties": {
+                "version": {
+                    "type": "string"
+                },
+                "response": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "extends": ""
+        },
+        "TaskIdResult": {
+            "description": "",
+            "id": "TaskIdResult",
+            "properties": {
+                "version": {
+                    "type": "string"
+                },
+                "response": {
+                    "$ref": "TaskIdResponse"
+                }
+            },
+            "extends": ""
+        },
+        "NetworkDeviceDTO": {
+            "description": "",
+            "id": "NetworkDeviceDTO",
+            "extends": "",
+            "properties": {
+                "reachabilityStatus": {
+                    "type": "string",
+                    "description": "Device reachability status as Reachable / Unreachable"
+                },
+                "locationName": {
+                    "type": "string",
+                    "description": "Name of the associated location"
+                },
+                "macAddress": {
+                    "type": "string",
+                    "description": "MAC address of device"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of device as switch, router, wireless lan controller, accesspoints"
+                },
+                "inventoryStatusDetail": {
+                    "type": "string",
+                    "description": "Status detail of inventory sync"
+                },
+                "collectionInterval": {
+                    "type": "string"
+                },
+                "lastUpdateTime": {
+                    "$ref": "date-time"
+                },
+                "roleSource": {
+                    "type": "string",
+                    "description": "Role source as manual / auto"
+                },
+                "upTime": {
+                    "type": "string",
+                    "description": "Time that shows for how long the device has been up"
+                },
+                "serialNumber": {
+                    "type": "string",
+                    "description": "Serial number of device"
+                },
+                "reachabilityFailureReason": {
+                    "type": "string",
+                    "description": "Failure reason for unreachable devices"
+                },
+                "errorCode": {
+                    "type": "string",
+                    "description": "Inventory status error code"
+                },
+                "family": {
+                    "type": "string",
+                    "description": "Family of device as switch, router, wireless lan controller, accesspoints"
+                },
+                "instanceUuid": {
+                    "type": "string"
+                },
+                "snmpLocation": {
+                    "type": "string",
+                    "description": "SNMP location on device"
+                },
+                "tagCount": {
+                    "type": "string",
+                    "description": "Number of tags associated with the device"
+                },
+                "interfaceCount": {
+                    "type": "string",
+                    "description": "Number of interfaces on the device"
+                },
+                "memorySize": {
+                    "type": "string",
+                    "description": "Processor memory size"
+                },
+                "lineCardCount": {
+                    "type": "string",
+                    "description": "Number of linecards on the device"
+                },
+                "tunnelUdpPort": {
+                    "type": "string",
+                    "description": "Mobility protocol port is stored as tunneludpport for WLC"
+                },
+                "bootDateTime": {
+                    "type": "string",
+                    "description": "Device boot time"
+                },
+                "location": {
+                    "type": "string",
+                    "description": "Location ID that is associated with the device"
+                },
+                "collectionStatus": {
+                    "type": "string",
+                    "description": "Collection status as Synchronizing, Could not synchronize, Not manageable, Managed, Partial Collection Failure, Incomplete, Unreachable, Wrong credential, Reachable, In Progress"
+                },
+                "lineCardId": {
+                    "type": "string",
+                    "description": "IDs of linecards of the device"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "Role of device as access, distribution, border router, core"
+                },
+                "errorDescription": {
+                    "type": "string",
+                    "description": "Inventory status description"
+                },
+                "apManagerInterfaceIp": {
+                    "type": "string",
+                    "description": "IP address of WLC on AP manager interface"
+                },
+                "series": {
+                    "type": "string",
+                    "description": "Device series"
+                },
+                "managementIpAddress": {
+                    "type": "string",
+                    "description": "IP address of the device"
+                },
+                "hostname": {
+                    "type": "string",
+                    "description": "Device name"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "platformId": {
+                    "type": "string",
+                    "description": "Platform ID of device"
+                },
+                "softwareVersion": {
+                    "type": "string",
+                    "description": "Software version on the device"
+                },
+                "lastUpdated": {
+                    "type": "string",
+                    "description": "Time when the network device info last got updated"
+                },
+                "snmpContact": {
+                    "type": "string",
+                    "description": "SNMP contact on device"
+                }
+            },
+            "required": [
+                "family",
+                "type",
+                "serialNumber",
+                "series",
+                "upTime",
+                "inventoryStatusDetail",
+                "role",
+                "macAddress",
+                "softwareVersion",
+                "lastUpdated",
+                "tagCount",
+                "hostname",
+                "managementIpAddress",
+                "memorySize",
+                "platformId",
+                "reachabilityStatus",
+                "collectionStatus",
+                "interfaceCount",
+                "lineCardCount",
+                "lineCardId"
+            ]
+        },
+        "NetworkDeviceNIO": {
+            "description": "",
+            "id": "NetworkDeviceNIO",
+            "extends": "",
+            "properties": {
+                "locationName": {
+                    "type": "string",
+                    "description": "Name of the associated location"
+                },
+                "macAddress": {
+                    "type": "string",
+                    "description": "MAC address of device"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of device as switch, router, wireless lan controller, accesspoints"
+                },
+                "vendor": {
+                    "type": "string",
+                    "description": "Vendor information of the device"
+                },
+                "family": {
+                    "type": "string",
+                    "description": "Family of device as switch, router, wireless lan controller, accesspoints"
+                },
+                "wlcApDeviceStatus": {
+                    "type": "string",
+                    "description": "Collection status of AP devices"
+                },
+                "portRange": {
+                    "type": "string",
+                    "description": "Range of ports on device"
+                },
+                "interfaceCount": {
+                    "type": "string",
+                    "description": "Number of interfaces on the device"
+                },
+                "lineCardCount": {
+                    "type": "string",
+                    "description": "Number of linecards on the device"
+                },
+                "lineCardId": {
+                    "type": "string",
+                    "description": "IDs of linecards of the device"
+                },
+                "avgUpdateFrequency": {
+                    "type": "integer",
+                    "description": "Frequency in which interface info gets updated",
+                    "format": "int32"
+                },
+                "errorCode": {
+                    "type": "string",
+                    "description": "Error code when inventory collection fails"
+                },
+                "numUpdates": {
+                    "type": "integer",
+                    "description": "Number of time network-device info got updated",
+                    "format": "int32"
+                },
+                "bootDateTime": {
+                    "type": "string",
+                    "description": "Device boot time",
+                    "format": "date-time"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "Unique identifier of network device"
+                },
+                "memorySize": {
+                    "type": "string",
+                    "description": "Processor memory size"
+                },
+                "tag": {
+                    "type": "string",
+                    "description": "Tag ID that is associated with the device"
+                },
+                "inventoryCollectionStatus": {
+                    "type": "string",
+                    "description": "Last known collection status of the device"
+                },
+                "reachabilityStatus": {
+                    "type": "string",
+                    "description": "Reachability status of a device as Success/Failure/Discarded"
+                },
+                "lastUpdated": {
+                    "type": "string",
+                    "description": "Time when the network device info last got updated"
+                },
+                "qosStatus": {
+                    "type": "string",
+                    "description": "Qos status on device"
+                },
+                "roleSource": {
+                    "type": "string",
+                    "description": "Role source as manual / auto"
+                },
+                "upTime": {
+                    "type": "string",
+                    "description": "Time that shows for how long the device has been up"
+                },
+                "serialNumber": {
+                    "type": "string",
+                    "description": "Serial number of device"
+                },
+                "reachabilityFailureReason": {
+                    "type": "string",
+                    "description": "Failure reason for unreachable devices"
+                },
+                "authModelId": {
+                    "type": "string",
+                    "description": "Authentication model Id on device"
+                },
+                "snmpStatus": {
+                    "type": "string",
+                    "description": "SNMP status at the time of discovery"
+                },
+                "snmpLocation": {
+                    "type": "string",
+                    "description": "SNMP location on device"
+                },
+                "duplicateDeviceId": {
+                    "type": "string",
+                    "description": "Identifier of the duplicate ip of the same device discovered"
+                },
+                "tagCount": {
+                    "type": "integer",
+                    "description": "Number of tags associated with the device",
+                    "format": "int32"
+                },
+                "imageName": {
+                    "type": "string",
+                    "description": "Image details on the device"
+                },
+                "cliStatus": {
+                    "type": "string",
+                    "description": "CLI status at the time of discovery"
+                },
+                "pingStatus": {
+                    "type": "string",
+                    "description": "Ping status at the time of discovery"
+                },
+                "softwareVersion": {
+                    "type": "string",
+                    "description": "Software version on the device"
+                },
+                "location": {
+                    "type": "string",
+                    "description": "Location ID that is associated with the device"
+                },
+                "anchorWlcForAp": {
+                    "type": "string",
+                    "description": "Connected WLC device for AP"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "Role of device as access, distribution, border router, core"
+                },
+                "errorDescription": {
+                    "type": "string",
+                    "description": "Error description when inventory collection fails"
+                },
+                "ingressQueueConfig": {
+                    "type": "string",
+                    "description": "Ingress queue config on device"
+                },
+                "managementIpAddress": {
+                    "type": "string",
+                    "description": "IP address of the device"
+                },
+                "hostname": {
+                    "type": "string",
+                    "description": "Device name"
+                },
+                "platformId": {
+                    "type": "string",
+                    "description": "Platform ID of device"
+                },
+                "inventoryReachabilityStatus": {
+                    "type": "string",
+                    "description": "Last known reachabilty status of the device"
+                },
+                "snmpContact": {
+                    "type": "string",
+                    "description": "SNMP contact on device"
+                }
+            },
+            "required": [
+                "snmpStatus",
+                "cliStatus",
+                "inventoryReachabilityStatus",
+                "upTime",
+                "serialNumber",
+                "type",
+                "macAddress",
+                "softwareVersion",
+                "role",
+                "lastUpdated",
+                "inventoryCollectionStatus",
+                "tagCount",
+                "hostname",
+                "id",
+                "managementIpAddress",
+                "memorySize",
+                "platformId",
+                "reachabilityStatus",
+                "family",
+                "interfaceCount",
+                "lineCardCount",
+                "lineCardId"
+            ]
+        },
+        "NetworkDeviceListResult": {
+            "description": "",
+            "id": "NetworkDeviceListResult",
+            "properties": {
+                "version": {
+                    "type": "string"
+                },
+                "response": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "NetworkDeviceDTO"
+                    }
+                }
+            },
+            "extends": ""
+        },
+        "SiteManagementInfo": {
+            "description": "",
+            "id": "SiteManagementInfo",
+            "extends": "",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "Description of site"
+                },
+                "deviceIds": {
+                    "type": "array",
+                    "description": "Unique identifier of devices that are associated with site",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "properties": {
+                    "description": "Properties of site",
+                    "$ref": "object"
+                },
+                "location": {
+                    "type": "string",
+                    "description": "Location of site"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of site"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "Unique identifier of site"
+                }
+            },
+            "required": [
+                "deviceIds",
+                "name",
+                "location",
+                "properties",
+                "id",
+                "description"
+            ]
+        },
+        "NetworkManagementInfoResult": {
+            "description": "",
+            "id": "NetworkManagementInfoResult",
+            "properties": {
+                "version": {
+                    "type": "string"
+                },
+                "response": {
+                    "$ref": "NetworkManagementInfo"
+                }
+            },
+            "extends": ""
+        },
+        "TaskId": {
+            "description": "",
+            "id": "TaskId",
+            "properties": {},
+            "extends": ""
+        },
+        "Date": {
+            "description": "",
+            "id": "Date",
+            "properties": {
+                "date": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "year": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "month": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "seconds": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "hours": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "time": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "minutes": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "extends": ""
+        },
+        "NetworkDeviceResult": {
+            "description": "",
+            "id": "NetworkDeviceResult",
+            "properties": {
+                "version": {
+                    "type": "string"
+                },
+                "response": {
+                    "$ref": "NetworkDeviceDTO"
+                }
+            },
+            "extends": ""
+        },
+        "ModuleListResult": {
+            "description": "",
+            "id": "ModuleListResult",
+            "properties": {
+                "version": {
+                    "type": "string"
+                },
+                "response": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "ModuleDTO"
+                    }
+                }
+            },
+            "extends": ""
+        },
+        "NetworkDeviceBriefNIO": {
+            "description": "",
+            "id": "NetworkDeviceBriefNIO",
+            "extends": "",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Unique identifier of the network device"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "Role of device as access, distribution, border router, core"
+                },
+                "roleSource": {
+                    "type": "string",
+                    "description": "Role source as manual / auto"
+                }
+            },
+            "required": [
+                "id",
+                "role",
+                "roleSource"
+            ]
+        },
+        "InventoryDeviceInfo": {
+            "description": "",
+            "id": "InventoryDeviceInfo",
+            "extends": "",
+            "properties": {
+                "snmpPrivProtocol": {
+                    "type": "string",
+                    "description": "SNMPV3 priv protocol. Supported values: des, aes"
+                },
+                "snmpROCommunity": {
+                    "type": "string",
+                    "description": "SNMP RO community"
+                },
+                "snmpPrivPassphrase": {
+                    "type": "string",
+                    "description": "SNMPV3 priv passphrase"
+                },
+                "snmpRWCommunity": {
+                    "type": "string",
+                    "description": "SNMP RW community"
+                },
+                "snmpTimeout": {
+                    "type": "integer",
+                    "description": "SNMP timeout in seconds",
+                    "format": "int32"
+                },
+                "userName": {
+                    "type": "string",
+                    "description": "CLI user name"
+                },
+                "snmpMode": {
+                    "type": "string",
+                    "description": "SNMPV3 mode. Supported values: noAuthnoPriv, authNoPriv, authPriv"
+                },
+                "ipAddress": {
+                    "type": "array",
+                    "description": "IP Address of the device",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "cliTransport": {
+                    "type": "string",
+                    "description": "CLI transport. Supported values: telnet, ssh2"
+                },
+                "snmpAuthPassphrase": {
+                    "type": "string",
+                    "description": "SNMPV3 auth passphrase"
+                },
+                "snmpAuthProtocol": {
+                    "type": "string",
+                    "description": "SNMPV3 auth protocol. Supported values: sha, md5"
+                },
+                "extendedDiscoveryInfo": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "CLI password"
+                },
+                "serialNumber": {
+                    "type": "string"
+                },
+                "snmpRetry": {
+                    "type": "integer",
+                    "description": "SNMP retry count. Max value supported is 3",
+                    "format": "int32"
+                },
+                "snmpVersion": {
+                    "type": "string",
+                    "description": "SNMP version. Values supported: v2, v3. Default is v2"
+                },
+                "enablePassword": {
+                    "type": "string",
+                    "description": "CLI enable password"
+                },
+                "snmpUserName": {
+                    "type": "string",
+                    "description": "SNMPV3 user name"
+                }
+            },
+            "required": [
+                "snmpAuthPassphrase",
+                "snmpAuthProtocol",
+                "snmpPrivPassphrase",
+                "snmpPrivProtocol",
+                "snmpROCommunity",
+                "snmpRWCommunity",
+                "snmpRetry",
+                "userName",
+                "enablePassword",
+                "ipAddress",
+                "password",
+                "snmpMode",
+                "snmpTimeout",
+                "snmpUserName",
+                "cliTransport"
+            ]
+        },
+        "SchedulingNIO": {
+            "description": "",
+            "id": "SchedulingNIO",
+            "properties": {
+                "ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "collectionInterval": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "extends": ""
+        },
+        "NetworkDeviceBriefNIOResult": {
+            "description": "",
+            "id": "NetworkDeviceBriefNIOResult",
+            "properties": {
+                "version": {
+                    "type": "string"
+                },
+                "response": {
+                    "$ref": "NetworkDeviceBriefNIO"
+                }
+            },
+            "extends": ""
+        },
+        "ModuleDTO": {
+            "description": "",
+            "id": "ModuleDTO",
+            "extends": "",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "Description of the module"
+                },
+                "moduleIndex": {
+                    "type": "integer",
+                    "description": "Index of the module",
+                    "format": "int32"
+                },
+                "manufacturer": {
+                    "type": "string",
+                    "description": "Manufacturer of the module"
+                },
+                "operationalStateCode": {
+                    "type": "string",
+                    "description": "Operational state of the module"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the module"
+                },
+                "vendorEquipmentType": {
+                    "type": "string",
+                    "description": "Vendor euipment type of the module"
+                },
+                "entityPhysicalIndex": {
+                    "type": "string",
+                    "description": "Entity physical index of the module"
+                },
+                "attributeInfo": {
+                    "$ref": "object"
+                },
+                "assemblyNumber": {
+                    "type": "string",
+                    "description": "Assembly number of the module"
+                },
+                "isReportingAlarmsAllowed": {
+                    "type": "string",
+                    "description": "To mention if reporting alarms are allowed",
+                    "enum": [
+                        "UNKNOWN",
+                        "TRUE",
+                        "FALSE",
+                        "NOT_APPLICABLE"
+                    ]
+                },
+                "containmentEntity": {
+                    "type": "string",
+                    "description": "Containment entity of the module"
+                },
+                "assemblyRevision": {
+                    "type": "string",
+                    "description": "Assembly revision of the module"
+                },
+                "serialNumber": {
+                    "type": "string",
+                    "description": "Serial number of the module"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "Id of the module"
+                },
+                "isFieldReplaceable": {
+                    "type": "string",
+                    "description": "To mention if field is replaceable",
+                    "enum": [
+                        "UNKNOWN",
+                        "TRUE",
+                        "FALSE",
+                        "NOT_APPLICABLE"
+                    ]
+                },
+                "partNumber": {
+                    "type": "string",
+                    "description": "Part number of the module"
+                }
+            },
+            "required": [
+                "isFieldReplaceable",
+                "entityPhysicalIndex",
+                "containmentEntity",
+                "name",
+                "serialNumber",
+                "description",
+                "assemblyNumber",
+                "assemblyRevision",
+                "isReportingAlarmsAllowed",
+                "manufacturer",
+                "operationalStateCode",
+                "partNumber",
+                "vendorEquipmentType",
+                "id",
+                "moduleIndex"
+            ]
+        }
+    },
+    "resourcePath": "/network-device",
+    "produces": [
+        "application/json"
+    ],
+    "apis": [
+        {
+            "description": "updateNetworkDeviceDetails",
+            "path": "/network-device",
+            "operations": [
+                {
+                    "method": "PUT",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "updateNetworkDeviceDetails",
+                    "type": "TaskIdResult",
+                    "notes": "Sync the devices provided as input",
+                    "summary": "Network device sync api",
+                    "parameters": [
+                        {
+                            "description": "Payload to hold device IP and credential information",
+                            "defaultValue": "",
+                            "required": true,
+                            "type": "InventoryDeviceInfo",
+                            "allowMultiple": false,
+                            "name": "inventoryDeviceInfo",
+                            "paramType": "body"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "TaskIdResult"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "addNetworkDevice",
+            "path": "/network-device",
+            "operations": [
+                {
+                    "method": "POST",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "addNetworkDevice",
+                    "type": "TaskIdResult",
+                    "notes": "Adds the device with given credential",
+                    "summary": "Network device POST api",
+                    "parameters": [
+                        {
+                            "description": "Payload to hold device IP and credential information",
+                            "defaultValue": "",
+                            "required": true,
+                            "type": "InventoryDeviceInfo",
+                            "allowMultiple": false,
+                            "name": "inventoryDeviceInfo",
+                            "paramType": "body"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The POST/PUT request was fulfilled and a new resource has been created. Information about the resource is in the response body.",
+                            "code": 201
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "TaskIdResult"
+                        },
+                        {
+                            "message": "The request was accepted for processing, but the processing has not been completed.",
+                            "code": 202
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "getAllNetworkDevice",
+            "path": "/network-device",
+            "operations": [
+                {
+                    "method": "GET",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "getAllNetworkDevice",
+                    "type": "object",
+                    "notes": "Gets the list of first 500 network devices sorted lexicographically based on host name. It can be filtered using management IP address, mac address, hostname and location name. In case of autocomplete request, returns the list of specified attributes",
+                    "summary": "Retrieves all network devices",
+                    "parameters": [],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "object"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "updateNetworkDevice",
+            "path": "/network-device/brief",
+            "operations": [
+                {
+                    "method": "PUT",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "updateNetworkDevice",
+                    "type": "TaskIdResult",
+                    "notes": "Updates the role of the device as access, core, distribution, border router",
+                    "summary": "Updates network device role",
+                    "parameters": [
+                        {
+                            "description": "networkDeviceBriefNIO",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "NetworkDeviceBriefNIO",
+                            "allowMultiple": false,
+                            "name": "networkDeviceBriefNIO",
+                            "paramType": "body"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "TaskIdResult"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ],
+                    "consumes": [
+                        "application/json"
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "updateSchedule",
+            "path": "/network-device/collection-schedule",
+            "operations": [
+                {
+                    "method": "PUT",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "updateSchedule",
+                    "type": "TaskIdResult",
+                    "notes": "updateSchedule",
+                    "summary": "updateSchedule",
+                    "parameters": [
+                        {
+                            "description": "schedulingNIO",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "SchedulingNIO",
+                            "allowMultiple": false,
+                            "name": "schedulingNIO",
+                            "paramType": "body"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "TaskIdResult"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "getScheduleglobally",
+            "path": "/network-device/collection-schedule/global",
+            "operations": [
+                {
+                    "method": "GET",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "getScheduleglobally",
+                    "type": "CountResult",
+                    "notes": "Retrieves collection interval of all devices",
+                    "summary": "Retrieves the collection interval of all devices",
+                    "parameters": [],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "CountResult"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "updateScheduleGlobally",
+            "path": "/network-device/collection-schedule/global/{schedule}",
+            "operations": [
+                {
+                    "method": "PUT",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "updateScheduleGlobally",
+                    "type": "TaskIdResult",
+                    "notes": "updateScheduleGlobally",
+                    "summary": "updateScheduleGlobally",
+                    "parameters": [
+                        {
+                            "description": "schedule",
+                            "defaultValue": "",
+                            "format": "int32",
+                            "required": true,
+                            "type": "integer",
+                            "allowMultiple": false,
+                            "name": "schedule",
+                            "paramType": "path"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "TaskIdResult"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "getNetworkDeviceCount",
+            "path": "/network-device/count",
+            "operations": [
+                {
+                    "method": "GET",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "getNetworkDeviceCount",
+                    "type": "CountResult",
+                    "notes": "Gets the count of network devices filtered by management IP address, mac address, hostname and location name",
+                    "summary": "Retrieves network device count",
+                    "parameters": [],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "CountResult"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "getNetworkDeviceByIp",
+            "path": "/network-device/ip-address/{ipAddress}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "getNetworkDeviceByIp",
+                    "type": "NetworkDeviceResult",
+                    "notes": "Gets the network device with the given IP address",
+                    "summary": "Retrieves network device by IP address",
+                    "parameters": [
+                        {
+                            "description": "Device IP address",
+                            "defaultValue": "",
+                            "required": true,
+                            "type": "string",
+                            "allowMultiple": false,
+                            "name": "ipAddress",
+                            "paramType": "path"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "NetworkDeviceResult"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "getNetworkDeviceLocation",
+            "path": "/network-device/location",
+            "operations": [
+                {
+                    "method": "GET",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "getNetworkDeviceLocation",
+                    "type": "NetworkDeviceListResult",
+                    "notes": "Gets the list of network devices that has a location",
+                    "summary": "Retrieves device location",
+                    "parameters": [],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "NetworkDeviceListResult"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "addNetworkDeviceLocation",
+            "path": "/network-device/location",
+            "operations": [
+                {
+                    "method": "POST",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "addNetworkDeviceLocation",
+                    "type": "TaskIdResult",
+                    "notes": "Associates the given location to the given device",
+                    "summary": "Associates location with device",
+                    "parameters": [
+                        {
+                            "description": "networkDeviceNIO",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "NetworkDeviceNIO",
+                            "allowMultiple": false,
+                            "name": "networkDeviceNIO",
+                            "paramType": "body"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The POST/PUT request was fulfilled and a new resource has been created. Information about the resource is in the response body.",
+                            "code": 201
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "TaskIdResult"
+                        },
+                        {
+                            "message": "The request was accepted for processing, but the processing has not been completed.",
+                            "code": 202
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ],
+                    "consumes": [
+                        "application/json"
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "getNetworkDeviceByLocationId",
+            "path": "/network-device/location/{locationId}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "getNetworkDeviceByLocationId",
+                    "type": "NetworkDeviceListResult",
+                    "notes": "Gets list of network devices that are associated with the given location",
+                    "summary": "Retrieves network device by location ID",
+                    "parameters": [
+                        {
+                            "description": "Location ID",
+                            "defaultValue": "",
+                            "required": true,
+                            "type": "string",
+                            "allowMultiple": false,
+                            "name": "locationId",
+                            "paramType": "path"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "NetworkDeviceListResult"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "getNetworkDeviceByLocationByRange",
+            "path": "/network-device/location/{locationId}/{startIndex}/{recordsToReturn}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "getNetworkDeviceByLocationByRange",
+                    "type": "NetworkDeviceListResult",
+                    "notes": "Gets network devices associated with the given location in the given range",
+                    "summary": "Retrieves network devices with specified location in the given range",
+                    "parameters": [
+                        {
+                            "description": "Location ID",
+                            "defaultValue": "",
+                            "required": true,
+                            "type": "string",
+                            "allowMultiple": false,
+                            "name": "locationId",
+                            "paramType": "path"
+                        },
+                        {
+                            "description": "Start index",
+                            "defaultValue": "",
+                            "format": "int32",
+                            "required": true,
+                            "type": "integer",
+                            "allowMultiple": false,
+                            "name": "startIndex",
+                            "paramType": "path"
+                        },
+                        {
+                            "description": "Number of records to return",
+                            "defaultValue": "",
+                            "format": "int32",
+                            "required": true,
+                            "type": "integer",
+                            "allowMultiple": false,
+                            "name": "recordsToReturn",
+                            "paramType": "path"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "NetworkDeviceListResult"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "getNetworkDeviceLocationByRange",
+            "path": "/network-device/location/{startIndex}/{recordsToReturn}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "getNetworkDeviceLocationByRange",
+                    "type": "NetworkDeviceListResult",
+                    "notes": "Gets the location for the devices in the given range",
+                    "summary": "Retrieves device locations in the given range",
+                    "parameters": [
+                        {
+                            "description": "startIndex",
+                            "defaultValue": "",
+                            "format": "int32",
+                            "required": true,
+                            "type": "integer",
+                            "allowMultiple": false,
+                            "name": "startIndex",
+                            "paramType": "path"
+                        },
+                        {
+                            "description": "recordsToReturn",
+                            "defaultValue": "",
+                            "format": "int32",
+                            "required": true,
+                            "type": "integer",
+                            "allowMultiple": false,
+                            "name": "recordsToReturn",
+                            "paramType": "path"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "NetworkDeviceListResult"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "getNetworkManagementInfo",
+            "path": "/network-device/management-info",
+            "operations": [
+                {
+                    "method": "GET",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "getNetworkManagementInfo",
+                    "type": "NetworkManagementInfoResult",
+                    "notes": "Gets the managment information of network devices and sites. Maximum allowed limit is 100.",
+                    "summary": "Get the network management information",
+                    "parameters": [],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "NetworkManagementInfoResult"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "getNetworkManagementInfoCount",
+            "path": "/network-device/management-info/count",
+            "operations": [
+                {
+                    "method": "GET",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "getNetworkManagementInfoCount",
+                    "type": "CountResult",
+                    "notes": "Gets the number of network devices or sites, whichever is maximum. This count is used to paginate and query the /network-device/management-info API",
+                    "summary": "Get the network management information count",
+                    "parameters": [],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "CountResult"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "getModuleByNetworkDeviceId",
+            "path": "/network-device/module",
+            "operations": [
+                {
+                    "method": "GET",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "getModuleByNetworkDeviceId",
+                    "type": "ModuleListResult",
+                    "notes": "Get modules of the given device id",
+                    "summary": "Gives all the modules associated with given device id",
+                    "parameters": [
+                        {
+                            "description": "deviceId",
+                            "defaultValue": "",
+                            "required": true,
+                            "type": "string",
+                            "allowMultiple": false,
+                            "name": "deviceId",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "limit",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "string",
+                            "allowMultiple": false,
+                            "name": "limit",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "offset",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "string",
+                            "allowMultiple": false,
+                            "name": "offset",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "nameList",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "List",
+                            "allowMultiple": true,
+                            "name": "nameList",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "vendorEquipmentTypeList",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "List",
+                            "allowMultiple": true,
+                            "name": "vendorEquipmentTypeList",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "partNumberList",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "List",
+                            "allowMultiple": true,
+                            "name": "partNumberList",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "operationalStateCodeList",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "List",
+                            "allowMultiple": true,
+                            "name": "operationalStateCodeList",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "filterOperation",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "string",
+                            "allowMultiple": false,
+                            "name": "filterOperation",
+                            "paramType": "query"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "ModuleListResult"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "getModuleCount",
+            "path": "/network-device/module/count",
+            "operations": [
+                {
+                    "method": "GET",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "getModuleCount",
+                    "type": "CountResult",
+                    "notes": "Get Module Count",
+                    "summary": "Gives total number of Modules",
+                    "parameters": [
+                        {
+                            "description": "deviceId",
+                            "defaultValue": "",
+                            "required": true,
+                            "type": "string",
+                            "allowMultiple": false,
+                            "name": "deviceId",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "nameList",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "List",
+                            "allowMultiple": true,
+                            "name": "nameList",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "vendorEquipmentTypeList",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "List",
+                            "allowMultiple": true,
+                            "name": "vendorEquipmentTypeList",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "partNumberList",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "List",
+                            "allowMultiple": true,
+                            "name": "partNumberList",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "operationalStateCodeList",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "List",
+                            "allowMultiple": true,
+                            "name": "operationalStateCodeList",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "filterOperation",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "string",
+                            "allowMultiple": false,
+                            "name": "filterOperation",
+                            "paramType": "query"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "CountResult"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "getModuleById",
+            "path": "/network-device/module/{id}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "getModuleById",
+                    "type": "ModuleResult",
+                    "notes": "Get module by id",
+                    "summary": "Gives Module info by its id",
+                    "parameters": [
+                        {
+                            "description": "id",
+                            "defaultValue": "",
+                            "required": true,
+                            "type": "string",
+                            "allowMultiple": false,
+                            "name": "id",
+                            "paramType": "path"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "ModuleResult"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "getNetworkDeviceBySerialNumber",
+            "path": "/network-device/serial-number/{serialNumber}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "getNetworkDeviceBySerialNumber",
+                    "type": "NetworkDeviceResult",
+                    "notes": "Gets the network device with the given serial number",
+                    "summary": "Retrieves network device by serial number",
+                    "parameters": [
+                        {
+                            "description": "Device serial number",
+                            "defaultValue": "",
+                            "required": true,
+                            "type": "string",
+                            "allowMultiple": false,
+                            "name": "serialNumber",
+                            "paramType": "path"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "NetworkDeviceResult"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "syncDevice",
+            "path": "/network-device/sync",
+            "operations": [
+                {
+                    "method": "PUT",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "syncDevice",
+                    "type": "TaskIdResult",
+                    "notes": "Sync's the devices. If forceSync param is false (default) then the sync would run in normal priority thread. If forceSync param is true then the sync would run in high priority thread if avaiable else the sync will fail, result can be seen in the child task of each device",
+                    "summary": "Network device sync api",
+                    "parameters": [
+                        {
+                            "description": "List of id's in the format [\"id1\", \"id2\"]",
+                            "defaultValue": "",
+                            "required": true,
+                            "type": "List",
+                            "allowMultiple": false,
+                            "name": "id",
+                            "paramType": "body"
+                        },
+                        {
+                            "description": "forceSync",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "boolean",
+                            "allowMultiple": false,
+                            "name": "forceSync",
+                            "paramType": "query"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "TaskIdResult"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "deleteDevicebyId",
+            "path": "/network-device/{id}",
+            "operations": [
+                {
+                    "method": "DELETE",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "deleteDevicebyId",
+                    "type": "TaskIdResult",
+                    "notes": "Removes the network device for the given ID",
+                    "summary": "Delete network device by ID",
+                    "parameters": [
+                        {
+                            "description": "Device ID",
+                            "defaultValue": "",
+                            "required": true,
+                            "type": "string",
+                            "allowMultiple": false,
+                            "name": "id",
+                            "paramType": "path"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "TaskIdResult"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "getNetworkDeviceById",
+            "path": "/network-device/{id}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "getNetworkDeviceById",
+                    "type": "NetworkDeviceResult",
+                    "notes": "Gets the network device for the given device ID",
+                    "summary": "Retrieves network device by ID",
+                    "parameters": [
+                        {
+                            "description": "Device ID",
+                            "defaultValue": "",
+                            "required": true,
+                            "type": "string",
+                            "allowMultiple": false,
+                            "name": "id",
+                            "paramType": "path"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "NetworkDeviceResult"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "getNetworkDeviceBrief",
+            "path": "/network-device/{id}/brief",
+            "operations": [
+                {
+                    "method": "GET",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "getNetworkDeviceBrief",
+                    "type": "NetworkDeviceBriefNIOResult",
+                    "notes": "Gets brief network device info such as hostname, management IP address for the given device ID",
+                    "summary": "Retrieves network device brief by ID",
+                    "parameters": [
+                        {
+                            "description": "Device ID",
+                            "defaultValue": "",
+                            "required": true,
+                            "type": "string",
+                            "allowMultiple": false,
+                            "name": "id",
+                            "paramType": "path"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "NetworkDeviceBriefNIOResult"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "getScheduleDevice",
+            "path": "/network-device/{id}/collection-schedule",
+            "operations": [
+                {
+                    "method": "GET",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "getScheduleDevice",
+                    "type": "CountResult",
+                    "notes": "Retrieves collection interval by device id",
+                    "summary": "Retrieves the collection interval specified by device ID",
+                    "parameters": [
+                        {
+                            "description": "Device ID",
+                            "defaultValue": "",
+                            "required": true,
+                            "type": "string",
+                            "allowMultiple": false,
+                            "name": "id",
+                            "paramType": "path"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "CountResult"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "getNetworkDeviceLocationById",
+            "path": "/network-device/{id}/location",
+            "operations": [
+                {
+                    "method": "GET",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "getNetworkDeviceLocationById",
+                    "type": "NetworkDeviceResult",
+                    "notes": "Gets the location for the given device ID",
+                    "summary": "Retrieves device location by device ID",
+                    "parameters": [
+                        {
+                            "description": "Device ID",
+                            "defaultValue": "",
+                            "required": true,
+                            "type": "string",
+                            "allowMultiple": false,
+                            "name": "id",
+                            "paramType": "path"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "NetworkDeviceResult"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "deleteNetworkLocationById",
+            "path": "/network-device/{id}/location",
+            "operations": [
+                {
+                    "method": "DELETE",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "deleteNetworkLocationById",
+                    "type": "TaskIdResult",
+                    "notes": "Removes the association between device and location for the given device",
+                    "summary": "Removes network device location",
+                    "parameters": [
+                        {
+                            "description": "Device ID",
+                            "defaultValue": "",
+                            "required": true,
+                            "type": "string",
+                            "allowMultiple": false,
+                            "name": "id",
+                            "paramType": "path"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "TaskIdResult"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "getNetworkDeviceRange",
+            "path": "/network-device/{startIndex}/{recordsToReturn}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "getNetworkDeviceRange",
+                    "type": "NetworkDeviceListResult",
+                    "notes": "Gets the list of network devices for the given range",
+                    "summary": "Retrieves network device by range",
+                    "parameters": [
+                        {
+                            "description": "Start index",
+                            "defaultValue": "",
+                            "format": "int32",
+                            "required": true,
+                            "type": "integer",
+                            "allowMultiple": false,
+                            "name": "startIndex",
+                            "paramType": "path"
+                        },
+                        {
+                            "description": "Number of records to return",
+                            "defaultValue": "",
+                            "format": "int32",
+                            "required": true,
+                            "type": "integer",
+                            "allowMultiple": false,
+                            "name": "recordsToReturn",
+                            "paramType": "path"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "NetworkDeviceListResult"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "swaggerVersion": "1.2",
+    "consumes": [
+        "application/json"
+    ],
+    "basePath": "/apic-em-inventory-manager-service"
+}

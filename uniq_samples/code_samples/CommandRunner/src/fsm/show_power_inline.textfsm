@@ -1,0 +1,7 @@
+Value Module (\d+)
+Value available (\d+\.\d+)
+Value used (\d+\.\d+)
+Value remaining (\d+\.\d+)
+
+Start
+	^${Module}\s+${available}\s+${used}\s+${remaining} -> Record

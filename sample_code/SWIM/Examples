@@ -1,0 +1,3 @@
+./list_images.py
+./distribute.py --tag upgrade9k --image cat9k_iosxe.16.06.02s.SPA.bin
+./delete.py --tag upgrade9k --image cat9k_iosxe.16.06.02s.SPA.bin

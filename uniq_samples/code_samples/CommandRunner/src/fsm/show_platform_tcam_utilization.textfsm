@@ -1,0 +1,13 @@
+Value IPv4ConnMaxMask (\d+)
+Value IPv4ConnMaxValue (\d+)
+Value IPv4ConnMask (\d+)
+Value IPv4ConnValue (\d+)
+Value IPv4IConnMaxMask (\d+)
+Value IPv4IConnMaxValue (\d+)
+Value IPv4IConnMask (\d+)
+Value IPv4IConnValue (\d+)
+
+
+Start
+	^\s+IPv4 unicast directly-connected routes:\s+${IPv4ConnMaxMask}/${IPv4ConnMaxValue}\s+${IPv4ConnMask}/${IPv4ConnValue}
+	^\s+IPv4 unicast indirectly-connected routes:\s+${IPv4IConnMaxMask}/${IPv4IConnMaxValue}\s+${IPv4IConnMask}/${IPv4IConnValue} -> Record

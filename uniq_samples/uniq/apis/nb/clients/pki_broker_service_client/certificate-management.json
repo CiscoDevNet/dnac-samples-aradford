@@ -1,0 +1,607 @@
+{
+    "basePath": "/",
+    "produces": [
+        "application/json"
+    ],
+    "swaggerVersion": "1.2",
+    "models": {
+        "CertificateBrief": {
+            "id": "CertificateBrief",
+            "extends": "",
+            "properties": {
+                "commonName": {
+                    "type": "string",
+                    "description": "Certificate common name"
+                },
+                "selfSigned": {
+                    "type": "string",
+                    "description": "Set if this is a self-signed certificate"
+                },
+                "proxyEnabled": {
+                    "type": "string",
+                    "description": "Set if this is a proxy certificate"
+                },
+                "attributeInfo": {
+                    "$ref": "object"
+                },
+                "serialNumber": {
+                    "type": "string",
+                    "description": "Certificate serial-number"
+                },
+                "issuer": {
+                    "type": "string",
+                    "description": "Certificate issuer"
+                },
+                "gvSerialId": {
+                    "type": "string",
+                    "description": "Grapevine certificate serial identification"
+                },
+                "expiry": {
+                    "type": "string",
+                    "description": "Certificate expiry"
+                },
+                "id": {
+                    "type": "string"
+                }
+            },
+            "description": ""
+        },
+        "CertificateBriefListResult": {
+            "id": "CertificateBriefListResult",
+            "extends": "",
+            "properties": {
+                "version": {
+                    "type": "string"
+                },
+                "response": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "CertificateBrief"
+                    }
+                }
+            },
+            "description": ""
+        },
+        "CertificateBriefResult": {
+            "id": "CertificateBriefResult",
+            "extends": "",
+            "properties": {
+                "version": {
+                    "type": "string"
+                },
+                "response": {
+                    "$ref": "CertificateBrief"
+                }
+            },
+            "description": ""
+        },
+        "TaskIdResponse": {
+            "id": "TaskIdResponse",
+            "extends": "",
+            "properties": {
+                "taskId": {
+                    "$ref": "TaskId"
+                },
+                "url": {
+                    "type": "string"
+                }
+            },
+            "description": ""
+        },
+        "TaskIdResult": {
+            "id": "TaskIdResult",
+            "extends": "",
+            "properties": {
+                "version": {
+                    "type": "string"
+                },
+                "response": {
+                    "$ref": "TaskIdResponse"
+                }
+            },
+            "description": ""
+        },
+        "TaskId": {
+            "id": "TaskId",
+            "extends": "",
+            "properties": {},
+            "description": ""
+        },
+        "CertificateProxyStatus": {
+            "id": "CertificateProxyStatus",
+            "extends": "",
+            "properties": {
+                "proxyEnabled": {
+                    "type": "boolean"
+                }
+            },
+            "description": ""
+        },
+        "CountResult": {
+            "id": "CountResult",
+            "extends": "",
+            "properties": {
+                "version": {
+                    "type": "string"
+                },
+                "response": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "description": ""
+        }
+    },
+    "resourcePath": "/",
+    "consumes": [
+        "application/json",
+        "multipart/form-data"
+    ],
+    "apiVersion": "1.0",
+    "apis": [
+        {
+            "operations": [
+                {
+                    "type": "TaskIdResult",
+                    "nickname": "importCertificate",
+                    "method": "POST",
+                    "parameters": [
+                        {
+                            "defaultValue": "",
+                            "type": "File",
+                            "required": true,
+                            "allowMultiple": false,
+                            "name": "certFileUpload",
+                            "paramType": "form",
+                            "description": "Specify the name of Certificate file to upload"
+                        },
+                        {
+                            "defaultValue": "",
+                            "type": "File",
+                            "required": true,
+                            "allowMultiple": false,
+                            "name": "pkFileUpload",
+                            "paramType": "form",
+                            "description": "Specify the name of Private Key file to upload"
+                        },
+                        {
+                            "defaultValue": "",
+                            "type": "string",
+                            "required": false,
+                            "allowMultiple": false,
+                            "name": "pkPassword",
+                            "paramType": "query",
+                            "description": "Private Key Passsword"
+                        }
+                    ],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "consumes": [
+                        "multipart/form-data"
+                    ],
+                    "summary": "importCertificate",
+                    "notes": "This method is used to upload a certificate",
+                    "responseMessages": [
+                        {
+                            "message": "This Request is OK",
+                            "responseModel": "TaskIdResult",
+                            "code": 200
+                        },
+                        {
+                            "message": "This Request is Accepted",
+                            "code": 202
+                        },
+                        {
+                            "message": "This user is Forbidden Access to this Resource",
+                            "code": 403
+                        },
+                        {
+                            "message": "Not Authorized Yet, Credentials to be supplied",
+                            "code": 401
+                        },
+                        {
+                            "message": "No Resource Found",
+                            "code": 404
+                        }
+                    ]
+                }
+            ],
+            "path": "/certificate",
+            "description": "importCertificate"
+        },
+        {
+            "operations": [
+                {
+                    "type": "CertificateBriefListResult",
+                    "nickname": "getCertificateBriefList",
+                    "method": "GET",
+                    "parameters": [],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "summary": "getCertificateBriefList",
+                    "notes": "This method is used to return list of certificates",
+                    "responseMessages": [
+                        {
+                            "message": "This Request is OK",
+                            "responseModel": "CertificateBriefListResult",
+                            "code": 200
+                        },
+                        {
+                            "message": "This user is Forbidden Access to this Resource",
+                            "code": 403
+                        },
+                        {
+                            "message": "Not Authorized Yet, Credentials to be supplied",
+                            "code": 401
+                        },
+                        {
+                            "message": "No Resource Found",
+                            "code": 404
+                        }
+                    ]
+                }
+            ],
+            "path": "/certificate",
+            "description": "getCertificateBriefList"
+        },
+        {
+            "operations": [
+                {
+                    "type": "TaskIdResult",
+                    "nickname": "importCertificateP12",
+                    "method": "POST",
+                    "parameters": [
+                        {
+                            "defaultValue": "",
+                            "type": "File",
+                            "required": true,
+                            "allowMultiple": false,
+                            "name": "p12FileUpload",
+                            "paramType": "form",
+                            "description": "Specify the name of PKCS#12 file to upload"
+                        },
+                        {
+                            "defaultValue": "",
+                            "type": "string",
+                            "required": false,
+                            "allowMultiple": false,
+                            "name": "p12Password",
+                            "paramType": "query",
+                            "description": "P12 Passsword"
+                        },
+                        {
+                            "defaultValue": "",
+                            "type": "string",
+                            "required": false,
+                            "allowMultiple": false,
+                            "name": "pkPassword",
+                            "paramType": "query",
+                            "description": "Private Key Passsword"
+                        }
+                    ],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "consumes": [
+                        "multipart/form-data"
+                    ],
+                    "summary": "importCertificateP12",
+                    "notes": "This method is used to upload a PKCS#12 file",
+                    "responseMessages": [
+                        {
+                            "message": "This Request is OK",
+                            "responseModel": "TaskIdResult",
+                            "code": 200
+                        },
+                        {
+                            "message": "This Request is Accepted",
+                            "code": 202
+                        },
+                        {
+                            "message": "This user is Forbidden Access to this Resource",
+                            "code": 403
+                        },
+                        {
+                            "message": "Not Authorized Yet, Credentials to be supplied",
+                            "code": 401
+                        },
+                        {
+                            "message": "No Resource Found",
+                            "code": 404
+                        }
+                    ]
+                }
+            ],
+            "path": "/certificate-p12",
+            "description": "importCertificateP12"
+        },
+        {
+            "operations": [
+                {
+                    "type": "CountResult",
+                    "nickname": "getCertificateCount",
+                    "method": "GET",
+                    "parameters": [],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "summary": "getCertificateBriefList",
+                    "notes": "This method is used to return count of certificates",
+                    "responseMessages": [
+                        {
+                            "message": "This Request is OK",
+                            "responseModel": "CountResult",
+                            "code": 200
+                        },
+                        {
+                            "message": "This user is Forbidden Access to this Resource",
+                            "code": 403
+                        },
+                        {
+                            "message": "Not Authorized Yet, Credentials to be supplied",
+                            "code": 401
+                        },
+                        {
+                            "message": "No Resource Found",
+                            "code": 404
+                        }
+                    ]
+                }
+            ],
+            "path": "/certificate/count",
+            "description": "getCertificateCount"
+        },
+        {
+            "operations": [
+                {
+                    "type": "CertificateBriefResult",
+                    "nickname": "getCertificateBrief",
+                    "method": "GET",
+                    "parameters": [
+                        {
+                            "defaultValue": "",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "name": "certificateId",
+                            "paramType": "path",
+                            "description": "Certificate ID"
+                        }
+                    ],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "summary": "getCertificateBrief",
+                    "notes": "This method is used to return a specific certificte by its ID",
+                    "responseMessages": [
+                        {
+                            "message": "This Request is OK",
+                            "responseModel": "CertificateBriefResult",
+                            "code": 200
+                        },
+                        {
+                            "message": "This user is Forbidden Access to this Resource",
+                            "code": 403
+                        },
+                        {
+                            "message": "Not Authorized Yet, Credentials to be supplied",
+                            "code": 401
+                        },
+                        {
+                            "message": "No Resource Found",
+                            "code": 404
+                        }
+                    ]
+                }
+            ],
+            "path": "/certificate/{certificateId}",
+            "description": "getCertificateBrief"
+        },
+        {
+            "operations": [
+                {
+                    "type": "CertificateBriefListResult",
+                    "nickname": "getCertificateBriefListByRange",
+                    "method": "GET",
+                    "parameters": [
+                        {
+                            "defaultValue": "",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "name": "startIndex",
+                            "format": "int32",
+                            "paramType": "path",
+                            "description": "Index to start returning records from"
+                        },
+                        {
+                            "defaultValue": "",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "name": "recordsToReturn",
+                            "format": "int32",
+                            "paramType": "path",
+                            "description": "Number of records to return"
+                        }
+                    ],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "summary": "getCertificateBriefList",
+                    "notes": "This method is used to return list of certificates by range",
+                    "responseMessages": [
+                        {
+                            "message": "This Request is OK",
+                            "responseModel": "CertificateBriefListResult",
+                            "code": 200
+                        },
+                        {
+                            "message": "This user is Forbidden Access to this Resource",
+                            "code": 403
+                        },
+                        {
+                            "message": "Not Authorized Yet, Credentials to be supplied",
+                            "code": 401
+                        },
+                        {
+                            "message": "No Resource Found",
+                            "code": 404
+                        }
+                    ]
+                }
+            ],
+            "path": "/certificate/{startIndex}/{recordsToReturn}",
+            "description": "getCertificateBriefListByRange"
+        },
+        {
+            "operations": [
+                {
+                    "type": "TaskIdResult",
+                    "nickname": "updateProxyCertState",
+                    "method": "PUT",
+                    "parameters": [
+                        {
+                            "defaultValue": "",
+                            "type": "CertificateProxyStatus",
+                            "required": true,
+                            "allowMultiple": false,
+                            "name": "certificateProxyStatus",
+                            "paramType": "body",
+                            "description": "Enable/Disable proxy certificate"
+                        }
+                    ],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "consumes": [
+                        "application/json"
+                    ],
+                    "summary": "updateProxyCertState",
+                    "notes": "This method is used to update the proxy certificate",
+                    "responseMessages": [
+                        {
+                            "message": "This Request is OK",
+                            "responseModel": "TaskIdResult",
+                            "code": 200
+                        },
+                        {
+                            "message": "This user is Forbidden Access to this Resource",
+                            "code": 403
+                        },
+                        {
+                            "message": "Not Authorized Yet, Credentials to be supplied",
+                            "code": 401
+                        },
+                        {
+                            "message": "No Resource Found",
+                            "code": 404
+                        }
+                    ]
+                }
+            ],
+            "path": "/proxy-certificate",
+            "description": "updateProxyCertState"
+        },
+        {
+            "operations": [
+                {
+                    "type": "TaskIdResult",
+                    "nickname": "postProxyCertificate",
+                    "method": "POST",
+                    "parameters": [
+                        {
+                            "defaultValue": "",
+                            "type": "File",
+                            "required": true,
+                            "allowMultiple": false,
+                            "name": "certFileUpload",
+                            "paramType": "form",
+                            "description": "Specify the name of proxy certificate file to upload"
+                        }
+                    ],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "consumes": [
+                        "multipart/form-data"
+                    ],
+                    "summary": "postProxyCertificate",
+                    "notes": "This method is used to upload the proxy certificate",
+                    "responseMessages": [
+                        {
+                            "message": "This Request is OK",
+                            "responseModel": "TaskIdResult",
+                            "code": 200
+                        },
+                        {
+                            "message": "This Request is Accepted",
+                            "code": 202
+                        },
+                        {
+                            "message": "This user is Forbidden Access to this Resource",
+                            "code": 403
+                        },
+                        {
+                            "message": "Not Authorized Yet, Credentials to be supplied",
+                            "code": 401
+                        },
+                        {
+                            "message": "No Resource Found",
+                            "code": 404
+                        }
+                    ]
+                }
+            ],
+            "path": "/proxy-certificate",
+            "description": "postProxyCertificate"
+        },
+        {
+            "operations": [
+                {
+                    "type": "CertificateBriefResult",
+                    "nickname": "getProxyCertificate",
+                    "method": "GET",
+                    "parameters": [],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "summary": "getProxyCertificate",
+                    "notes": "This method is used to return the proxy certificate",
+                    "responseMessages": [
+                        {
+                            "message": "This Request is OK",
+                            "responseModel": "CertificateBriefResult",
+                            "code": 200
+                        },
+                        {
+                            "message": "This user is Forbidden Access to this Resource",
+                            "code": 403
+                        },
+                        {
+                            "message": "Not Authorized Yet, Credentials to be supplied",
+                            "code": 401
+                        },
+                        {
+                            "message": "No Resource Found",
+                            "code": 404
+                        }
+                    ]
+                }
+            ],
+            "path": "/proxy-certificate",
+            "description": "getProxyCertificate"
+        }
+    ]
+}

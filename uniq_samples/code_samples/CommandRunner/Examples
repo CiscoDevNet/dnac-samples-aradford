@@ -1,0 +1,4 @@
+./cmd_runner.py --ip 10.10.22.70 --commands "show ver | inc RELEASE"
+./cmd_runner.py --ip 10.10.22.70 --commands "show ver | inc RELEASE" --human
+
+./cmd_runner.py --tag switch --commands 'show power inline' --table --fsm

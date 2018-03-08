@@ -1,0 +1,1046 @@
+{
+    "basePath": "/",
+    "produces": [
+        "application/json"
+    ],
+    "swaggerVersion": "1.2",
+    "models": {
+        "PkiTrustPointResult": {
+            "id": "PkiTrustPointResult",
+            "extends": "",
+            "properties": {
+                "version": {
+                    "type": "string"
+                },
+                "response": {
+                    "$ref": "PkiTrustPoint"
+                }
+            },
+            "description": ""
+        },
+        "TrustpoolUpdateParam": {
+            "id": "TrustpoolUpdateParam",
+            "extends": "",
+            "properties": {
+                "simulate": {
+                    "type": "boolean"
+                },
+                "id": {
+                    "type": "string"
+                }
+            },
+            "description": ""
+        },
+        "TrustpoolUpdateStatus": {
+            "id": "TrustpoolUpdateStatus",
+            "extends": "",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "update": {
+                    "type": "string"
+                },
+                "attributeInfo": {
+                    "$ref": "object"
+                }
+            },
+            "description": ""
+        },
+        "TaskId": {
+            "id": "TaskId",
+            "extends": "",
+            "properties": {},
+            "description": ""
+        },
+        "PkiTrustPointListResult": {
+            "id": "PkiTrustPointListResult",
+            "extends": "",
+            "properties": {
+                "version": {
+                    "type": "string"
+                },
+                "response": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "PkiTrustPoint"
+                    }
+                }
+            },
+            "description": ""
+        },
+        "TrustpoolUpdateStatusResult": {
+            "id": "TrustpoolUpdateStatusResult",
+            "extends": "",
+            "properties": {
+                "version": {
+                    "type": "string"
+                },
+                "response": {
+                    "$ref": "TrustpoolUpdateStatus"
+                }
+            },
+            "description": ""
+        },
+        "PkiTrustPointConfig": {
+            "id": "PkiTrustPointConfig",
+            "extends": "",
+            "properties": {
+                "caFingerprint": {
+                    "type": "string"
+                },
+                "pkcs12Password": {
+                    "type": "string"
+                },
+                "enrollPort": {
+                    "type": "string"
+                },
+                "trustProfileName": {
+                    "type": "string"
+                },
+                "rsaKeySize": {
+                    "type": "string"
+                },
+                "serialNumber": {
+                    "type": "string"
+                },
+                "fqdn": {
+                    "type": "string"
+                },
+                "enrollSubjectDN": {
+                    "type": "string"
+                },
+                "provisionType": {
+                    "type": "string"
+                },
+                "enrollPassword": {
+                    "type": "string"
+                },
+                "platformId": {
+                    "type": "string"
+                },
+                "sdnIp": {
+                    "type": "string"
+                },
+                "enrollUrl": {
+                    "type": "string"
+                },
+                "pkcs12Url": {
+                    "type": "string"
+                },
+                "iosSecureCli": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "id": {
+                    "type": "string"
+                },
+                "enrollThreshold": {
+                    "type": "string"
+                },
+                "iosCli": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "description": ""
+        },
+        "TaskIdResponse": {
+            "id": "TaskIdResponse",
+            "extends": "",
+            "properties": {
+                "taskId": {
+                    "$ref": "TaskId"
+                },
+                "url": {
+                    "type": "string"
+                }
+            },
+            "description": ""
+        },
+        "Void": {
+            "id": "Void",
+            "extends": "",
+            "properties": {},
+            "description": ""
+        },
+        "PkiTrustPointConfigResult": {
+            "id": "PkiTrustPointConfigResult",
+            "extends": "",
+            "properties": {
+                "version": {
+                    "type": "string"
+                },
+                "response": {
+                    "$ref": "PkiTrustPointConfig"
+                }
+            },
+            "description": ""
+        },
+        "TaskIdResult": {
+            "id": "TaskIdResult",
+            "extends": "",
+            "properties": {
+                "version": {
+                    "type": "string"
+                },
+                "response": {
+                    "$ref": "TaskIdResponse"
+                }
+            },
+            "description": ""
+        },
+        "SuccessResult": {
+            "id": "SuccessResult",
+            "extends": "",
+            "properties": {
+                "version": {
+                    "type": "string"
+                },
+                "response": {
+                    "type": "string"
+                }
+            },
+            "description": ""
+        },
+        "CountResult": {
+            "id": "CountResult",
+            "extends": "",
+            "properties": {
+                "version": {
+                    "type": "string"
+                },
+                "response": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "description": ""
+        },
+        "PkiTrustPoint": {
+            "required": [
+                "entityName",
+                "serialNumber",
+                "platformId",
+                "trustProfileName"
+            ],
+            "id": "PkiTrustPoint",
+            "extends": "",
+            "properties": {
+                "platformId": {
+                    "type": "string",
+                    "description": "Platform identification. Eg. ASR1006"
+                },
+                "entityName": {
+                    "type": "string",
+                    "description": "Devices hostname"
+                },
+                "attributeInfo": {
+                    "$ref": "object"
+                },
+                "trustProfileName": {
+                    "type": "string",
+                    "description": "Name of trust-profile (must already exist). Default: sdn-network-infra-iwan"
+                },
+                "serialNumber": {
+                    "type": "string",
+                    "description": "Devices serial-number"
+                },
+                "networkDeviceId": {
+                    "type": "string",
+                    "description": "Device identification. Currently not used"
+                },
+                "certificateAuthorityId": {
+                    "type": "string",
+                    "description": "CA identification. Automatically populated"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "Trust-point identification. Automatically generated"
+                },
+                "entityType": {
+                    "type": "string",
+                    "description": "Available options: router, switch. Currently not used"
+                },
+                "controllerIpAddress": {
+                    "type": "string",
+                    "description": "IP address device uses to connect to APIC-EM. Eg. Proxy server IP address. Automatically populated if not set"
+                }
+            },
+            "description": ""
+        }
+    },
+    "resourcePath": "/",
+    "apiVersion": "1.0",
+    "apis": [
+        {
+            "operations": [
+                {
+                    "type": "void",
+                    "nickname": "getDefaultCaPem",
+                    "method": "GET",
+                    "parameters": [
+                        {
+                            "defaultValue": "",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "name": "id",
+                            "paramType": "path",
+                            "description": "Certificate ID"
+                        },
+                        {
+                            "defaultValue": "",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "name": "type",
+                            "paramType": "path",
+                            "description": "Certificate type"
+                        }
+                    ],
+                    "deprecated": "false",
+                    "summary": "getDefaultCaPem",
+                    "notes": "This method is used to download the default certificate",
+                    "responseMessages": [
+                        {
+                            "message": "This Request is OK",
+                            "code": 200
+                        },
+                        {
+                            "message": "This user is Forbidden Access to this Resource",
+                            "code": 403
+                        },
+                        {
+                            "message": "Not Authorized Yet, Credentials to be supplied",
+                            "code": 401
+                        },
+                        {
+                            "message": "No Resource Found",
+                            "code": 404
+                        }
+                    ]
+                }
+            ],
+            "path": "/certificate-authority/ca/{id}/{type}",
+            "description": "getDefaultCaPem"
+        },
+        {
+            "operations": [
+                {
+                    "type": "TrustpoolUpdateStatusResult",
+                    "nickname": "legacyUpdateDefaultCaPem",
+                    "method": "PUT",
+                    "parameters": [
+                        {
+                            "defaultValue": "",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "name": "id",
+                            "paramType": "path",
+                            "description": "Certificate ID"
+                        },
+                        {
+                            "defaultValue": "",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "name": "type",
+                            "paramType": "path",
+                            "description": "Certificate type"
+                        },
+                        {
+                            "defaultValue": "",
+                            "type": "TrustpoolUpdateParam",
+                            "required": false,
+                            "allowMultiple": false,
+                            "name": "param",
+                            "paramType": "body",
+                            "description": "param"
+                        }
+                    ],
+                    "deprecated": "false",
+                    "summary": "updateDefaultCaPem",
+                    "notes": "This method is used to update the default certificate",
+                    "responseMessages": [
+                        {
+                            "message": "This Request is OK",
+                            "responseModel": "TrustpoolUpdateStatusResult",
+                            "code": 200
+                        },
+                        {
+                            "message": "This user is Forbidden Access to this Resource",
+                            "code": 403
+                        },
+                        {
+                            "message": "Not Authorized Yet, Credentials to be supplied",
+                            "code": 401
+                        },
+                        {
+                            "message": "No Resource Found",
+                            "code": 404
+                        }
+                    ]
+                }
+            ],
+            "path": "/certificate-authority/update/{id}/{type}",
+            "description": "legacyUpdateDefaultCaPem"
+        },
+        {
+            "operations": [
+                {
+                    "type": "TrustpoolUpdateStatusResult",
+                    "nickname": "updateDefaultCaPem",
+                    "method": "PUT",
+                    "parameters": [
+                        {
+                            "defaultValue": "",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "name": "id",
+                            "paramType": "path",
+                            "description": "Certificate ID"
+                        },
+                        {
+                            "defaultValue": "",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "name": "type",
+                            "paramType": "path",
+                            "description": "Certificate type"
+                        },
+                        {
+                            "defaultValue": "",
+                            "type": "TrustpoolUpdateParam",
+                            "required": false,
+                            "allowMultiple": false,
+                            "name": "param",
+                            "paramType": "body",
+                            "description": "param"
+                        }
+                    ],
+                    "deprecated": "false",
+                    "summary": "updateDefaultCaPem",
+                    "notes": "This method is used to update the default certificate",
+                    "responseMessages": [
+                        {
+                            "message": "This Request is OK",
+                            "responseModel": "TrustpoolUpdateStatusResult",
+                            "code": 200
+                        },
+                        {
+                            "message": "This user is Forbidden Access to this Resource",
+                            "code": 403
+                        },
+                        {
+                            "message": "Not Authorized Yet, Credentials to be supplied",
+                            "code": 401
+                        },
+                        {
+                            "message": "No Resource Found",
+                            "code": 404
+                        }
+                    ]
+                }
+            ],
+            "path": "/certificate-authority/{id}/{type}",
+            "description": "updateDefaultCaPem"
+        },
+        {
+            "operations": [
+                {
+                    "type": "PkiTrustPointListResult",
+                    "nickname": "pkiTrustPointListGet",
+                    "method": "GET",
+                    "parameters": [],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "summary": "pkiTrustPointListGet",
+                    "notes": "This method is used to return a list of trust-points",
+                    "responseMessages": [
+                        {
+                            "message": "This Request is OK",
+                            "responseModel": "PkiTrustPointListResult",
+                            "code": 200
+                        },
+                        {
+                            "message": "This user is Forbidden Access to this Resource",
+                            "code": 403
+                        },
+                        {
+                            "message": "Not Authorized Yet, Credentials to be supplied",
+                            "code": 401
+                        },
+                        {
+                            "message": "No Resource Found",
+                            "code": 404
+                        }
+                    ]
+                }
+            ],
+            "path": "/trust-point",
+            "description": "pkiTrustPointListGet"
+        },
+        {
+            "operations": [
+                {
+                    "type": "TaskIdResult",
+                    "nickname": "pkiTrustPointPost",
+                    "method": "POST",
+                    "parameters": [
+                        {
+                            "defaultValue": "",
+                            "type": "PkiTrustPoint",
+                            "required": false,
+                            "allowMultiple": false,
+                            "name": "pkiTrustPointInput",
+                            "paramType": "body",
+                            "description": "pkiTrustPointInput"
+                        }
+                    ],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "summary": "pkiTrustPointPost",
+                    "notes": "This method is used to create a trust-point",
+                    "responseMessages": [
+                        {
+                            "message": "This Request is OK",
+                            "responseModel": "TaskIdResult",
+                            "code": 200
+                        },
+                        {
+                            "message": "This Request is Accepted",
+                            "code": 202
+                        },
+                        {
+                            "message": "This user is Forbidden Access to this Resource",
+                            "code": 403
+                        },
+                        {
+                            "message": "Not Authorized Yet, Credentials to be supplied",
+                            "code": 401
+                        },
+                        {
+                            "message": "No Resource Found",
+                            "code": 404
+                        }
+                    ]
+                }
+            ],
+            "path": "/trust-point",
+            "description": "pkiTrustPointPost"
+        },
+        {
+            "operations": [
+                {
+                    "type": "CountResult",
+                    "nickname": "pkiTrustPointCount",
+                    "method": "GET",
+                    "parameters": [],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "summary": "pkiTrustPointListGet",
+                    "notes": "This method is used to return count of trust-points",
+                    "responseMessages": [
+                        {
+                            "message": "This Request is OK",
+                            "responseModel": "CountResult",
+                            "code": 200
+                        },
+                        {
+                            "message": "This user is Forbidden Access to this Resource",
+                            "code": 403
+                        },
+                        {
+                            "message": "Not Authorized Yet, Credentials to be supplied",
+                            "code": 401
+                        },
+                        {
+                            "message": "No Resource Found",
+                            "code": 404
+                        }
+                    ]
+                }
+            ],
+            "path": "/trust-point/count",
+            "description": "pkiTrustPointCount"
+        },
+        {
+            "operations": [
+                {
+                    "type": "void",
+                    "nickname": "pkiTrustPointPkcs12Download",
+                    "method": "GET",
+                    "parameters": [
+                        {
+                            "defaultValue": "",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "name": "trustPointId",
+                            "paramType": "path",
+                            "description": "Trust-point ID"
+                        },
+                        {
+                            "defaultValue": "",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "name": "token",
+                            "paramType": "path",
+                            "description": "Download token"
+                        }
+                    ],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "summary": "pkiTrustPointPkcs12Download",
+                    "notes": "This method is used to download a trust-point's PKCS#12 bundle",
+                    "responseMessages": [
+                        {
+                            "message": "This Request is OK",
+                            "code": 200
+                        },
+                        {
+                            "message": "This user is Forbidden Access to this Resource",
+                            "code": 403
+                        },
+                        {
+                            "message": "Not Authorized Yet, Credentials to be supplied",
+                            "code": 401
+                        },
+                        {
+                            "message": "No Resource Found",
+                            "code": 404
+                        }
+                    ]
+                }
+            ],
+            "path": "/trust-point/pkcs12/{trustPointId}/{token}",
+            "description": "pkiTrustPointPkcs12Download"
+        },
+        {
+            "operations": [
+                {
+                    "type": "TaskIdResult",
+                    "nickname": "pkiTrustPointDeleteByDeviceSN",
+                    "method": "DELETE",
+                    "parameters": [
+                        {
+                            "defaultValue": "",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "name": "serialNumber",
+                            "paramType": "path",
+                            "description": "Device serial-number"
+                        }
+                    ],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "summary": "pkiTrustPointDeleteByDeviceSN",
+                    "notes": "This method is used to delete a specific trust-point by its device serial-number",
+                    "responseMessages": [
+                        {
+                            "message": "This Request is OK",
+                            "responseModel": "TaskIdResult",
+                            "code": 200
+                        },
+                        {
+                            "message": "This user is Forbidden Access to this Resource",
+                            "code": 403
+                        },
+                        {
+                            "message": "Not Authorized Yet, Credentials to be supplied",
+                            "code": 401
+                        },
+                        {
+                            "message": "No Resource Found",
+                            "code": 404
+                        }
+                    ]
+                }
+            ],
+            "path": "/trust-point/serial-number/{serialNumber}",
+            "description": "pkiTrustPointDeleteByDeviceSN"
+        },
+        {
+            "operations": [
+                {
+                    "type": "PkiTrustPointResult",
+                    "nickname": "pkiTrustPointGetByDeviceSN",
+                    "method": "GET",
+                    "parameters": [
+                        {
+                            "defaultValue": "",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "name": "serialNumber",
+                            "paramType": "path",
+                            "description": "Device serial-number"
+                        }
+                    ],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "summary": "pkiTrustPointGetByDeviceSN",
+                    "notes": "This method is used to return a specific trust-point by its device serial-number",
+                    "responseMessages": [
+                        {
+                            "message": "This Request is OK",
+                            "responseModel": "PkiTrustPointResult",
+                            "code": 200
+                        },
+                        {
+                            "message": "This user is Forbidden Access to this Resource",
+                            "code": 403
+                        },
+                        {
+                            "message": "Not Authorized Yet, Credentials to be supplied",
+                            "code": 401
+                        },
+                        {
+                            "message": "No Resource Found",
+                            "code": 404
+                        }
+                    ]
+                }
+            ],
+            "path": "/trust-point/serial-number/{serialNumber}",
+            "description": "pkiTrustPointGetByDeviceSN"
+        },
+        {
+            "operations": [
+                {
+                    "type": "PkiTrustPointListResult",
+                    "nickname": "pkiTrustPointListGetByRange",
+                    "method": "GET",
+                    "parameters": [
+                        {
+                            "defaultValue": "",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "name": "startIndex",
+                            "format": "int32",
+                            "paramType": "path",
+                            "description": "Index to start returning records from"
+                        },
+                        {
+                            "defaultValue": "",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "name": "recordsToReturn",
+                            "format": "int32",
+                            "paramType": "path",
+                            "description": "Number of records to return"
+                        }
+                    ],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "summary": "getCertificateBriefList",
+                    "notes": "This method is used to return a list of trust-points by range",
+                    "responseMessages": [
+                        {
+                            "message": "This Request is OK",
+                            "responseModel": "PkiTrustPointListResult",
+                            "code": 200
+                        },
+                        {
+                            "message": "This user is Forbidden Access to this Resource",
+                            "code": 403
+                        },
+                        {
+                            "message": "Not Authorized Yet, Credentials to be supplied",
+                            "code": 401
+                        },
+                        {
+                            "message": "No Resource Found",
+                            "code": 404
+                        }
+                    ]
+                }
+            ],
+            "path": "/trust-point/{startIndex}/{recordsToReturn}",
+            "description": "pkiTrustPointListGetByRange"
+        },
+        {
+            "operations": [
+                {
+                    "type": "PkiTrustPointResult",
+                    "nickname": "pkiTrustPointGet",
+                    "method": "GET",
+                    "parameters": [
+                        {
+                            "defaultValue": "",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "name": "trustPointId",
+                            "paramType": "path",
+                            "description": "Trust-point ID"
+                        }
+                    ],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "summary": "pkiTrustPointGet",
+                    "notes": "This method is used to return a specific trust-point by its ID",
+                    "responseMessages": [
+                        {
+                            "message": "This Request is OK",
+                            "responseModel": "PkiTrustPointResult",
+                            "code": 200
+                        },
+                        {
+                            "message": "This user is Forbidden Access to this Resource",
+                            "code": 403
+                        },
+                        {
+                            "message": "Not Authorized Yet, Credentials to be supplied",
+                            "code": 401
+                        },
+                        {
+                            "message": "No Resource Found",
+                            "code": 404
+                        }
+                    ]
+                }
+            ],
+            "path": "/trust-point/{trustPointId}",
+            "description": "pkiTrustPointGet"
+        },
+        {
+            "operations": [
+                {
+                    "type": "TaskIdResult",
+                    "nickname": "pkiTrustPointDelete",
+                    "method": "DELETE",
+                    "parameters": [
+                        {
+                            "defaultValue": "",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "name": "trustPointId",
+                            "paramType": "path",
+                            "description": "Trust-point ID"
+                        }
+                    ],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "summary": "pkiTrustPointDelete",
+                    "notes": "This method is used to delete a specific trust-point by its ID",
+                    "responseMessages": [
+                        {
+                            "message": "This Request is OK",
+                            "responseModel": "TaskIdResult",
+                            "code": 200
+                        },
+                        {
+                            "message": "This user is Forbidden Access to this Resource",
+                            "code": 403
+                        },
+                        {
+                            "message": "Not Authorized Yet, Credentials to be supplied",
+                            "code": 401
+                        },
+                        {
+                            "message": "No Resource Found",
+                            "code": 404
+                        }
+                    ]
+                }
+            ],
+            "path": "/trust-point/{trustPointId}",
+            "description": "pkiTrustPointDelete"
+        },
+        {
+            "operations": [
+                {
+                    "type": "TaskIdResult",
+                    "nickname": "pkiTrustPointPush",
+                    "method": "POST",
+                    "parameters": [
+                        {
+                            "defaultValue": "",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "name": "trustPointId",
+                            "paramType": "path",
+                            "description": "Trust-point ID"
+                        }
+                    ],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "summary": "pkiTrustPointPush",
+                    "notes": "This method is used to push a created trust-point to its intended device",
+                    "responseMessages": [
+                        {
+                            "message": "This Request is OK",
+                            "responseModel": "TaskIdResult",
+                            "code": 200
+                        },
+                        {
+                            "message": "This Request is Accepted",
+                            "code": 202
+                        },
+                        {
+                            "message": "This user is Forbidden Access to this Resource",
+                            "code": 403
+                        },
+                        {
+                            "message": "Not Authorized Yet, Credentials to be supplied",
+                            "code": 401
+                        },
+                        {
+                            "message": "No Resource Found",
+                            "code": 404
+                        }
+                    ]
+                }
+            ],
+            "path": "/trust-point/{trustPointId}",
+            "description": "pkiTrustPointPush"
+        },
+        {
+            "operations": [
+                {
+                    "type": "PkiTrustPointConfigResult",
+                    "nickname": "pkiTrustPointConfigGet",
+                    "method": "GET",
+                    "parameters": [
+                        {
+                            "defaultValue": "",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "name": "trustPointId",
+                            "paramType": "path",
+                            "description": "Trust-point ID"
+                        }
+                    ],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "summary": "pkiTrustPointConfigGet",
+                    "notes": "This method is used to obtain a specific trust-point's configuration",
+                    "responseMessages": [
+                        {
+                            "message": "This Request is OK",
+                            "responseModel": "PkiTrustPointConfigResult",
+                            "code": 200
+                        },
+                        {
+                            "message": "This user is Forbidden Access to this Resource",
+                            "code": 403
+                        },
+                        {
+                            "message": "Not Authorized Yet, Credentials to be supplied",
+                            "code": 401
+                        },
+                        {
+                            "message": "No Resource Found",
+                            "code": 404
+                        }
+                    ]
+                }
+            ],
+            "path": "/trust-point/{trustPointId}/config",
+            "description": "pkiTrustPointConfigGet"
+        },
+        {
+            "operations": [
+                {
+                    "type": "SuccessResult",
+                    "nickname": "checkPKCS12Downloaded",
+                    "method": "GET",
+                    "parameters": [
+                        {
+                            "defaultValue": "",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "name": "trustPointId",
+                            "paramType": "path",
+                            "description": "Trust-point ID"
+                        },
+                        {
+                            "defaultValue": "ALL",
+                            "type": "List",
+                            "required": true,
+                            "allowMultiple": false,
+                            "name": "scope",
+                            "paramType": "header",
+                            "description": "Authorization Scope for RBAC"
+                        },
+                        {
+                            "defaultValue": "",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "name": "username",
+                            "paramType": "header",
+                            "description": "requestUsername"
+                        }
+                    ],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "summary": "checkPKCS12Downloaded",
+                    "notes": "This method is used to check if a specific trust-point has downloaded its PKCS#12 bundle",
+                    "responseMessages": [
+                        {
+                            "message": "This Request is OK",
+                            "responseModel": "SuccessResult",
+                            "code": 200
+                        },
+                        {
+                            "message": "This user is Forbidden Access to this Resource",
+                            "code": 403
+                        },
+                        {
+                            "message": "Not Authorized Yet, Credentials to be supplied",
+                            "code": 401
+                        },
+                        {
+                            "message": "No Resource Found",
+                            "code": 404
+                        }
+                    ]
+                }
+            ],
+            "path": "/trust-point/{trustPointId}/downloaded",
+            "description": "checkPKCS12Downloaded"
+        }
+    ]
+}

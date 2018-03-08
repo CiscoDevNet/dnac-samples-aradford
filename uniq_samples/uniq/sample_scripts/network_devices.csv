@@ -1,0 +1,23 @@
+Device Name,IP Address,MAC Address,IOS/Firmware,Platform,Serial Number,Devcie Role,Device Family
+2960x-auckland,192.168.14.16,04:6c:9d:f1:10:80,15.2(5b)E,WS-C2960X-48FPD-L,FCW1936A4KC,ACCESS,Switches and Hubs
+2960x-iwan.adamlab.cisco.com,192.168.12.160,c0:7b:bc:28:4f:00,15.2(4)E5,WS-C2960X-48FPD-L,FOC1743S0XB,ACCESS,Switches and Hubs
+3504,10.10.10.147,70:1f:53:b6:1b:00,8.5.110.0,AIR-CT3504-K9,FCW2138M059,ACCESS,Wireless Controller
+3650-dhcp.adamlab.cisco.com,10.10.14.2,6c:41:6a:0d:e7:80,16.6.2,"WS-C3650-48PD, WS-C3650-48PD-E, WS-C3650-48PQ-E","FDO1732Q00B, FDO1735Q0G5",ACCESS,Switches and Hubs
+3850-core.adamlab.cisco.com,10.10.10.110,7c:95:f3:bd:2a:00,16.6.20170928:082530,WS-C3850-24P-S,FOC1731U0WY,CORE,Switches and Hubs
+3850-edge.adamlab.cisco.com,10.10.2.130,7c:95:f3:bc:71:00,16.6.2s,WS-C3850-24P-E,FOC1731X0KN,ACCESS,Switches and Hubs
+3850-remote,10.10.6.2,7c:95:f3:bd:2b:00,16.6.2,WS-C3850-24P-E,FOC1731X15W,ACCESS,Switches and Hubs
+adam-ap-branch,192.168.12.137,a4:6c:2a:bd:b1:50,8.5.110.0,AIR-CAP1702I-Z-K9,FTX1916S2KL,ACCESS,Unified AP
+adam-ap-office,10.10.32.2,a4:6c:2a:ea:45:90,8.5.110.0,AIR-CAP1702I-Z-K9,FTX1916S2KK,ACCESS,Unified AP
+auckland-rtr.adamlab.cisco.com,192.168.8.2,88:1d:fc:01:9f:d0,15.5(3)S4b,ISR4331/K9,FDO1839A01H,BORDER ROUTER,Routers
+brisbane-adam-firewall.adamlab.cisco.com,192.168.200.147,,9.6(1),ASAv,9AUACNU0TTS,CORE,Security and VPN
+brisbane-adam-isrv.adamlab.cisco.com,192.168.200.146,00:1e:bd:a3:9a:00,16.4.1,ISRV,9BYK0SWTQV6,CORE,Routers
+c2921-02.rtp.cisco.com,10.10.6.1,24:b6:57:53:77:e0,15.4(20131012:104348),CISCO2921/K9,FGL154611FF,BORDER ROUTER,Routers
+cp-br.adamlab.cisco.com,10.10.3.41,00:1e:e5:0a:d7:00,16.6.2,CSR1000V,9EY8G0QR564,BORDER ROUTER,Routers
+csr1000v.cisco.com,10.10.10.115,00:1e:f6:03:ce:00,16.7.1,CSR1000V,97HKEVCELEH,BORDER ROUTER,Routers
+csr-head1-internet.adamlab.cisco.com,10.10.3.13,00:1e:bd:fc:62:00,15.5(3)S4b,CSR1000V,9F7TEVF77F8,BORDER ROUTER,Routers
+csr-head1-mpls.adamlab.cisco.com,10.10.2.13,00:1e:f6:d1:9e:00,15.5(3)S4b,CSR1000V,9M4P42J6I4V,BORDER ROUTER,Routers
+csr-head2-mpls.adamlab.cisco.com,10.10.2.41,00:1e:f6:98:1e:00,16.7.1,CSR1000V,9J1WMZFVHI8,BORDER ROUTER,Routers
+gasteiz-rtr.adamlab.cisco.com,192.168.8.1,88:5a:92:c7:67:00,15.5(3)S4b,ISR4451-X/K9,FTX1743ANS9,BORDER ROUTER,Routers
+j11-3650-2.cisco.com,172.26.165.28,6c:41:6a:0d:56:80,03.06.03E,WS-C3650-48PD,FDO1725Q001,ACCESS,Switches and Hubs
+nfvis,10.10.2.49,00:a6:ca:d6:01:b4,3.6.2-FC3,ENCS5408/K9,FGL210110TN,CORE,NFVIS
+pnp-test,172.23.218.68,ac:a0:16:0f:f3:80,12.2(35)SE5,WS-C3560E-24TD-S,FDO1417Y0QB,ACCESS,Switches and Hubs

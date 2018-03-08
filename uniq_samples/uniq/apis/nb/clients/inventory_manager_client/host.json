@@ -1,0 +1,566 @@
+{
+    "apiVersion": "1.0",
+    "models": {
+        "HostResult": {
+            "description": "",
+            "id": "HostResult",
+            "properties": {
+                "version": {
+                    "type": "string"
+                },
+                "response": {
+                    "$ref": "HostDTO"
+                }
+            },
+            "extends": ""
+        },
+        "HostDTO": {
+            "description": "",
+            "id": "HostDTO",
+            "extends": "",
+            "properties": {
+                "connectedInterfaceId": {
+                    "type": "string",
+                    "description": "Id of the interface to which host gets connected"
+                },
+                "pointOfPresence": {
+                    "type": "string",
+                    "description": "Id of the Host's Point of presence network device (wlc). Based on mobility"
+                },
+                "connectedAPMacAddress": {
+                    "type": "string",
+                    "description": "Mac address of the AP to which wireless host gets connected"
+                },
+                "source": {
+                    "type": "string",
+                    "description": "Source from which the host gets collected. Available option:200 for inventory collection and 300 for trap based data collection"
+                },
+                "vlanId": {
+                    "type": "string",
+                    "description": "Vlan Id of the host"
+                },
+                "hostName": {
+                    "type": "string",
+                    "description": "Name of the host"
+                },
+                "lastUpdated": {
+                    "type": "string",
+                    "description": "Time when the host info last got updated"
+                },
+                "pointOfAttachment": {
+                    "type": "string",
+                    "description": "Id of the Host's Point of attachment network device (wlc). Based on mobility"
+                },
+                "avgUpdateFrequency": {
+                    "type": "string",
+                    "description": "Frequency in which host info gets updated"
+                },
+                "hostMac": {
+                    "type": "string",
+                    "description": "Mac address of the host"
+                },
+                "attributeInfo": {
+                    "$ref": "object"
+                },
+                "connectedAPName": {
+                    "type": "string",
+                    "description": "Name of the AP to which wireless host gets connected"
+                },
+                "subType": {
+                    "type": "string",
+                    "enum": [
+                        "UNKNOWN",
+                        "IP_PHONE",
+                        "TELEPRESENCE",
+                        "VIDEO_SURVEILLANCE_IP_CAMERA",
+                        "VIDEO_ENDPOINT"
+                    ]
+                },
+                "hostIp": {
+                    "type": "string",
+                    "description": "Ip address of the host"
+                },
+                "connectedNetworkDeviceId": {
+                    "type": "string",
+                    "description": "Id of the network device to which host gets connected"
+                },
+                "connectedInterfaceName": {
+                    "type": "string",
+                    "description": "Name of the interface to which host gets connected"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "Id of the host"
+                },
+                "hostType": {
+                    "type": "string",
+                    "description": "Type of the host. Available options are: Wired, Wireless"
+                },
+                "connectedNetworkDeviceIpAddress": {
+                    "type": "string",
+                    "description": "Ip address of the network device to which host gets connected"
+                }
+            },
+            "required": [
+                "source",
+                "avgUpdateFrequency",
+                "lastUpdated",
+                "id",
+                "connectedNetworkDeviceId",
+                "connectedNetworkDeviceIpAddress",
+                "hostMac",
+                "hostType",
+                "hostIp"
+            ]
+        },
+        "CountResult": {
+            "description": "",
+            "id": "CountResult",
+            "properties": {
+                "version": {
+                    "type": "string"
+                },
+                "response": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "extends": ""
+        },
+        "HostListResult": {
+            "description": "",
+            "id": "HostListResult",
+            "properties": {
+                "version": {
+                    "type": "string"
+                },
+                "response": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "HostDTO"
+                    }
+                }
+            },
+            "extends": ""
+        }
+    },
+    "resourcePath": "/host",
+    "produces": [
+        "application/json"
+    ],
+    "apis": [
+        {
+            "description": "getHosts",
+            "path": "/host",
+            "operations": [
+                {
+                    "method": "GET",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "getHosts",
+                    "type": "HostListResult",
+                    "notes": "Gets the hosts based on given filters",
+                    "summary": "Retrieve hosts based on given filters",
+                    "parameters": [
+                        {
+                            "description": "limit",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "string",
+                            "allowMultiple": false,
+                            "name": "limit",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "offset",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "string",
+                            "allowMultiple": false,
+                            "name": "offset",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "sortBy",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "string",
+                            "allowMultiple": false,
+                            "name": "sortBy",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "order",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "string",
+                            "allowMultiple": false,
+                            "name": "order",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "hostName",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "List",
+                            "allowMultiple": true,
+                            "name": "hostName",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "hostMac",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "List",
+                            "allowMultiple": true,
+                            "name": "hostMac",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "Host type : wired or wireless",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "List",
+                            "allowMultiple": false,
+                            "name": "hostType",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "connectedInterfaceName",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "List",
+                            "allowMultiple": true,
+                            "name": "connectedInterfaceName",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "hostIp",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "List",
+                            "allowMultiple": true,
+                            "name": "hostIp",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "connectedNetworkDeviceIpAddress",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "List",
+                            "allowMultiple": true,
+                            "name": "connectedNetworkDeviceIpAddress",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "Available values: 'UNKNOWN' or 'IP_PHONE' or 'TELEPRESENCE' or 'VIDEO_SURVEILLANCE_IP_CAMERA' or 'VIDEO_ENDPOINT'. Only exact match filtering supported on this field",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "List",
+                            "allowMultiple": false,
+                            "name": "subType",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "startswith/contains/endswith",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "string",
+                            "allowMultiple": false,
+                            "name": "filterOperation",
+                            "paramType": "query"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "HostListResult"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "getHostCount",
+            "path": "/host/count",
+            "operations": [
+                {
+                    "method": "GET",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "getHostCount",
+                    "type": "CountResult",
+                    "notes": "Gets the number of hosts",
+                    "summary": "Retrieves the number of hosts",
+                    "parameters": [
+                        {
+                            "description": "hostName",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "List",
+                            "allowMultiple": true,
+                            "name": "hostName",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "hostMac",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "List",
+                            "allowMultiple": true,
+                            "name": "hostMac",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "Host type : wired or wireless",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "List",
+                            "allowMultiple": false,
+                            "name": "hostType",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "connectedInterfaceName",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "List",
+                            "allowMultiple": true,
+                            "name": "connectedInterfaceName",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "hostIp",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "List",
+                            "allowMultiple": true,
+                            "name": "hostIp",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "connectedNetworkDeviceIpAddress",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "List",
+                            "allowMultiple": true,
+                            "name": "connectedNetworkDeviceIpAddress",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "Available values: 'UNKNOWN' or 'IP_PHONE' or 'TELEPRESENCE' or 'VIDEO_SURVEILLANCE_IP_CAMERA' or 'VIDEO_ENDPOINT'. Only exact match filtering supported on this field",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "List",
+                            "allowMultiple": false,
+                            "name": "subType",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "startswith/contains/endswith",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "string",
+                            "allowMultiple": false,
+                            "name": "filterOperation",
+                            "paramType": "query"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "CountResult"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "getHostById",
+            "path": "/host/{id}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "getHostById",
+                    "type": "HostResult",
+                    "notes": "Gets host based on id",
+                    "summary": "Retrieves host based on id",
+                    "parameters": [
+                        {
+                            "description": "Host Id",
+                            "defaultValue": "",
+                            "required": true,
+                            "type": "string",
+                            "allowMultiple": false,
+                            "name": "id",
+                            "paramType": "path"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "HostResult"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "swaggerVersion": "1.2",
+    "basePath": "/apic-em-inventory-manager-service"
+}

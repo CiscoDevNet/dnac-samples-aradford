@@ -1,0 +1,601 @@
+{
+    "consumes": [
+        "application/json",
+        "multipart/form-data"
+    ],
+    "swaggerVersion": "1.2",
+    "produces": [
+        "application/json"
+    ],
+    "apis": [
+        {
+            "operations": [
+                {
+                    "consumes": [
+                        "application/json"
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 200,
+                            "responseModel": "TaskIdResult",
+                            "message": "This Request is OK"
+                        },
+                        {
+                            "code": 202,
+                            "message": "This Request is Accepted"
+                        },
+                        {
+                            "code": 403,
+                            "message": "This user is Forbidden Access to this Resource"
+                        },
+                        {
+                            "code": 401,
+                            "message": "Not Authorized Yet, Credentials to be supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "No Resource Found"
+                        }
+                    ],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "parameters": [
+                        {
+                            "description": "CiscoIseDTO Object",
+                            "name": "ciscoIseDTO",
+                            "type": "CiscoIseDTO",
+                            "paramType": "body",
+                            "required": true,
+                            "allowMultiple": false,
+                            "defaultValue": ""
+                        }
+                    ],
+                    "type": "TaskIdResult",
+                    "nickname": "addCiscoIseConfig",
+                    "summary": "add Cisco ISE",
+                    "method": "POST",
+                    "notes": "This method is used to create the ISE Server Configuration"
+                }
+            ],
+            "path": "/v2/cisco-ise",
+            "description": "addCiscoIseConfig"
+        },
+        {
+            "operations": [
+                {
+                    "responseMessages": [
+                        {
+                            "code": 200,
+                            "responseModel": "CiscoIseListResult",
+                            "message": "This Request is OK"
+                        },
+                        {
+                            "code": 403,
+                            "message": "This user is Forbidden Access to this Resource"
+                        },
+                        {
+                            "code": 401,
+                            "message": "Not Authorized Yet, Credentials to be supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "No Resource Found"
+                        }
+                    ],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "parameters": [],
+                    "type": "CiscoIseListResult",
+                    "nickname": "getList",
+                    "summary": "getList",
+                    "method": "GET",
+                    "notes": "This method is used to obtain the list of Cisco ISE Server Configurations"
+                }
+            ],
+            "path": "/v2/cisco-ise",
+            "description": "getList"
+        },
+        {
+            "operations": [
+                {
+                    "responseMessages": [
+                        {
+                            "code": 200,
+                            "responseModel": "IdentityAuthFileInfoListResult",
+                            "message": "This Request is OK"
+                        },
+                        {
+                            "code": 403,
+                            "message": "This user is Forbidden Access to this Resource"
+                        },
+                        {
+                            "code": 401,
+                            "message": "Not Authorized Yet, Credentials to be supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "No Resource Found"
+                        }
+                    ],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "parameters": [],
+                    "type": "IdentityAuthFileInfoListResult",
+                    "nickname": "getAuthFileList",
+                    "summary": "getList",
+                    "method": "GET",
+                    "notes": "This method is used to obtain the list of Keystore and Truststore files uploaded for ISE server configuration"
+                }
+            ],
+            "path": "/v2/cisco-ise/auth-file-info",
+            "description": "getAuthFileList"
+        },
+        {
+            "operations": [
+                {
+                    "consumes": [
+                        "multipart/form-data"
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 200,
+                            "responseModel": "TaskIdResult",
+                            "message": "This Request is OK"
+                        },
+                        {
+                            "code": 202,
+                            "message": "This Request is Accepted"
+                        },
+                        {
+                            "code": 403,
+                            "message": "This user is Forbidden Access to this Resource"
+                        },
+                        {
+                            "code": 401,
+                            "message": "Not Authorized Yet, Credentials to be supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "No Resource Found"
+                        }
+                    ],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "parameters": [
+                        {
+                            "description": "Authentication File (Java Keystore File) that is needed for communication with the ISE server from APIC-EM controller",
+                            "name": "jksFile",
+                            "type": "File",
+                            "paramType": "form",
+                            "required": true,
+                            "allowMultiple": false,
+                            "defaultValue": ""
+                        },
+                        {
+                            "description": "fileType",
+                            "name": "fileType",
+                            "type": "string",
+                            "paramType": "query",
+                            "required": true,
+                            "allowMultiple": false,
+                            "defaultValue": ""
+                        }
+                    ],
+                    "type": "TaskIdResult",
+                    "nickname": "addKeystoreFile",
+                    "summary": "add Identity Authentication File info",
+                    "method": "POST",
+                    "notes": "This method is used to upload Identity Authentication file info"
+                }
+            ],
+            "path": "/v2/cisco-ise/auth-file-info",
+            "description": "addKeystoreFile"
+        },
+        {
+            "operations": [
+                {
+                    "responseMessages": [
+                        {
+                            "code": 200,
+                            "responseModel": "CountResult",
+                            "message": "This Request is OK"
+                        },
+                        {
+                            "code": 403,
+                            "message": "This user is Forbidden Access to this Resource"
+                        },
+                        {
+                            "code": 401,
+                            "message": "Not Authorized Yet, Credentials to be supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "No Resource Found"
+                        }
+                    ],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "parameters": [],
+                    "type": "CountResult",
+                    "nickname": "getAuthFileCount",
+                    "summary": "getCount",
+                    "method": "GET",
+                    "notes": "This method is used to obtain the number of Identity Auth Files uploaded to APIC-EM"
+                }
+            ],
+            "path": "/v2/cisco-ise/auth-file-info/count",
+            "description": "getAuthFileCount"
+        },
+        {
+            "operations": [
+                {
+                    "responseMessages": [
+                        {
+                            "code": 200,
+                            "responseModel": "TaskIdResult",
+                            "message": "This Request is OK"
+                        },
+                        {
+                            "code": 403,
+                            "message": "This user is Forbidden Access to this Resource"
+                        },
+                        {
+                            "code": 401,
+                            "message": "Not Authorized Yet, Credentials to be supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "No Resource Found"
+                        }
+                    ],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "parameters": [
+                        {
+                            "description": "Identity Auth File ID",
+                            "name": "id",
+                            "type": "string",
+                            "paramType": "path",
+                            "required": true,
+                            "allowMultiple": false,
+                            "defaultValue": ""
+                        }
+                    ],
+                    "type": "TaskIdResult",
+                    "nickname": "deleteAuthFileInfo",
+                    "summary": "delete",
+                    "method": "DELETE",
+                    "notes": "This method is used to delete the Identity Auth File that was uploaded using an ID"
+                }
+            ],
+            "path": "/v2/cisco-ise/auth-file-info/{id}",
+            "description": "deleteAuthFileInfo"
+        },
+        {
+            "operations": [
+                {
+                    "responseMessages": [
+                        {
+                            "code": 200,
+                            "responseModel": "CountResult",
+                            "message": "This Request is OK"
+                        },
+                        {
+                            "code": 403,
+                            "message": "This user is Forbidden Access to this Resource"
+                        },
+                        {
+                            "code": 401,
+                            "message": "Not Authorized Yet, Credentials to be supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "No Resource Found"
+                        }
+                    ],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "parameters": [],
+                    "type": "CountResult",
+                    "nickname": "getCount",
+                    "summary": "getCount",
+                    "method": "GET",
+                    "notes": "This method is used to obtain the number of Cisco ISE configurations known to APIC-EM"
+                }
+            ],
+            "path": "/v2/cisco-ise/count",
+            "description": "getCount"
+        },
+        {
+            "operations": [
+                {
+                    "responseMessages": [
+                        {
+                            "code": 200,
+                            "responseModel": "CiscoIseResult",
+                            "message": "This Request is OK"
+                        },
+                        {
+                            "code": 403,
+                            "message": "This user is Forbidden Access to this Resource"
+                        },
+                        {
+                            "code": 401,
+                            "message": "Not Authorized Yet, Credentials to be supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "No Resource Found"
+                        }
+                    ],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "parameters": [
+                        {
+                            "description": "id",
+                            "name": "id",
+                            "type": "string",
+                            "paramType": "path",
+                            "required": true,
+                            "allowMultiple": false,
+                            "defaultValue": ""
+                        }
+                    ],
+                    "type": "CiscoIseResult",
+                    "nickname": "getEndPointGroupbyId",
+                    "summary": "Get Cisco ISE configuration based on id",
+                    "method": "GET",
+                    "notes": "Get Cisco ISE configuration based on id"
+                }
+            ],
+            "path": "/v2/cisco-ise/{id}",
+            "description": "getEndPointGroupbyId"
+        },
+        {
+            "operations": [
+                {
+                    "responseMessages": [
+                        {
+                            "code": 200,
+                            "responseModel": "TaskIdResult",
+                            "message": "This Request is OK"
+                        },
+                        {
+                            "code": 403,
+                            "message": "This user is Forbidden Access to this Resource"
+                        },
+                        {
+                            "code": 401,
+                            "message": "Not Authorized Yet, Credentials to be supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "No Resource Found"
+                        }
+                    ],
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "parameters": [
+                        {
+                            "description": "CISCO ISE Server ID",
+                            "name": "id",
+                            "type": "string",
+                            "paramType": "path",
+                            "required": true,
+                            "allowMultiple": false,
+                            "defaultValue": ""
+                        }
+                    ],
+                    "type": "TaskIdResult",
+                    "nickname": "delete",
+                    "summary": "delete",
+                    "method": "DELETE",
+                    "notes": "This method is used to remove the CISCO ISE configuration for a specific ISE Server"
+                }
+            ],
+            "path": "/v2/cisco-ise/{id}",
+            "description": "delete"
+        }
+    ],
+    "apiVersion": "1.0",
+    "models": {
+        "TaskIdResponse": {
+            "id": "TaskIdResponse",
+            "properties": {
+                "url": {
+                    "type": "string"
+                },
+                "taskId": {
+                    "$ref": "TaskId"
+                }
+            },
+            "description": "",
+            "extends": ""
+        },
+        "CiscoIseDTO": {
+            "id": "CiscoIseDTO",
+            "required": [
+                "ipAddress",
+                "keystoreFileId",
+                "keystoreFilePassPhrase",
+                "subscriberName",
+                "truststoreFileId",
+                "truststoreFilePassPhrase"
+            ],
+            "description": "",
+            "extends": "",
+            "properties": {
+                "description": {
+                    "description": "description",
+                    "type": "string"
+                },
+                "ipAddress": {
+                    "description": "ipAddress",
+                    "type": "string"
+                },
+                "serverState": {
+                    "description": "serverState",
+                    "type": "string"
+                },
+                "truststoreFilePassPhrase": {
+                    "description": "truststoreFilePassPhrase",
+                    "type": "string"
+                },
+                "keystoreFilePassPhrase": {
+                    "description": "keystoreFilePassPhrase",
+                    "type": "string"
+                },
+                "subscriberName": {
+                    "description": "subscriberName",
+                    "type": "string"
+                },
+                "truststoreFileId": {
+                    "description": "truststoreFileId",
+                    "type": "string"
+                },
+                "username": {
+                    "description": "username",
+                    "type": "string"
+                },
+                "password": {
+                    "description": "password",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "id",
+                    "type": "string"
+                },
+                "keystoreFileId": {
+                    "description": "keystoreFileId",
+                    "type": "string"
+                }
+            }
+        },
+        "CountResult": {
+            "id": "CountResult",
+            "properties": {
+                "response": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "version": {
+                    "type": "string"
+                }
+            },
+            "description": "",
+            "extends": ""
+        },
+        "CiscoIseListResult": {
+            "id": "CiscoIseListResult",
+            "properties": {
+                "response": {
+                    "items": {
+                        "$ref": "CiscoIseDTO"
+                    },
+                    "type": "array"
+                },
+                "version": {
+                    "type": "string"
+                }
+            },
+            "description": "",
+            "extends": ""
+        },
+        "IdentityAuthFileInfoDTO": {
+            "id": "IdentityAuthFileInfoDTO",
+            "required": [
+                "fileName",
+                "fileId",
+                "fileType"
+            ],
+            "description": "",
+            "extends": "",
+            "properties": {
+                "fileName": {
+                    "description": "fileName",
+                    "type": "string"
+                },
+                "fileType": {
+                    "description": "fileType",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "id",
+                    "type": "string"
+                },
+                "fileId": {
+                    "description": "fileId",
+                    "type": "string"
+                }
+            }
+        },
+        "CiscoIseResult": {
+            "id": "CiscoIseResult",
+            "properties": {
+                "response": {
+                    "$ref": "CiscoIseDTO"
+                },
+                "version": {
+                    "type": "string"
+                }
+            },
+            "description": "",
+            "extends": ""
+        },
+        "IdentityAuthFileInfoListResult": {
+            "id": "IdentityAuthFileInfoListResult",
+            "properties": {
+                "response": {
+                    "items": {
+                        "$ref": "IdentityAuthFileInfoDTO"
+                    },
+                    "type": "array"
+                },
+                "version": {
+                    "type": "string"
+                }
+            },
+            "description": "",
+            "extends": ""
+        },
+        "TaskId": {
+            "id": "TaskId",
+            "properties": {},
+            "description": "",
+            "extends": ""
+        },
+        "TaskIdResult": {
+            "id": "TaskIdResult",
+            "properties": {
+                "response": {
+                    "$ref": "TaskIdResponse"
+                },
+                "version": {
+                    "type": "string"
+                }
+            },
+            "description": "",
+            "extends": ""
+        }
+    },
+    "resourcePath": "/v2/cisco-ise",
+    "basePath": "/identity-manager-pxgrid-service"
+}

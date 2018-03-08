@@ -1,0 +1,173 @@
+{
+    "apiVersion": "1.0",
+    "models": {
+        "VlanDTO": {
+            "description": "",
+            "id": "VlanDTO",
+            "extends": "",
+            "properties": {
+                "mask": {
+                    "type": "integer",
+                    "description": "Mask ip",
+                    "format": "int32"
+                },
+                "networkAddress": {
+                    "type": "string",
+                    "description": "Network addresses"
+                },
+                "vlanType": {
+                    "type": "string",
+                    "description": "Type of Vlan"
+                },
+                "interfaceName": {
+                    "type": "string",
+                    "description": "Interface name"
+                },
+                "numberOfIPs": {
+                    "type": "integer",
+                    "description": "Number of Ip addresses",
+                    "format": "int32"
+                },
+                "ipAddress": {
+                    "type": "string",
+                    "description": "Ip address"
+                },
+                "prefix": {
+                    "type": "string",
+                    "description": "Prefix"
+                },
+                "vlanNumber": {
+                    "type": "integer",
+                    "description": "Vlan Number",
+                    "format": "int32"
+                }
+            },
+            "required": [
+                "numberOfIPs",
+                "mask",
+                "prefix",
+                "networkAddress",
+                "ipAddress",
+                "interfaceName",
+                "vlanType",
+                "vlanNumber"
+            ]
+        },
+        "VlanListResult": {
+            "description": "",
+            "id": "VlanListResult",
+            "properties": {
+                "version": {
+                    "type": "string"
+                },
+                "response": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "VlanDTO"
+                    }
+                }
+            },
+            "extends": ""
+        }
+    },
+    "resourcePath": "/network-device/{id}/vlan",
+    "produces": [
+        "application/json"
+    ],
+    "apis": [
+        {
+            "description": "getDeviceVLANData",
+            "path": "/network-device/{id}/vlan",
+            "operations": [
+                {
+                    "method": "GET",
+                    "deprecated": "false",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "nickname": "getDeviceVLANData",
+                    "type": "VlanListResult",
+                    "notes": "getDeviceVLANData",
+                    "summary": "Retrieves list of VLAN data for a device",
+                    "parameters": [
+                        {
+                            "description": "deviceUUID",
+                            "defaultValue": "",
+                            "required": true,
+                            "type": "string",
+                            "allowMultiple": false,
+                            "name": "id",
+                            "paramType": "path"
+                        },
+                        {
+                            "description": "Vlan assocaited with sub-interface",
+                            "defaultValue": "",
+                            "required": false,
+                            "type": "string",
+                            "allowMultiple": false,
+                            "name": "interfaceType",
+                            "paramType": "query"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "message": "The request was successful, however no content was returned.",
+                            "code": 204
+                        },
+                        {
+                            "message": "The target resource is in a conflicted state (for example, an edit conflict where a resource is being edited by multiple users). Retrying the request later might succeed.",
+                            "code": 409
+                        },
+                        {
+                            "message": "The GET request included a Range Header, and the server responded with the partial content matching the range.",
+                            "code": 206
+                        },
+                        {
+                            "message": "The server did not respond inside time restrictions and timed-out.",
+                            "code": 504
+                        },
+                        {
+                            "message": "The client sent a request body in a format that the server does not support (for example, XML to a server that only accepts JSON).",
+                            "code": 415
+                        },
+                        {
+                            "message": "The request was successful. The result is contained in the response body.",
+                            "code": 200,
+                            "responseModel": "VlanListResult"
+                        },
+                        {
+                            "message": "The server could not fulfill the request.",
+                            "code": 500
+                        },
+                        {
+                            "message": "The server has not implemented the functionality required to fulfill the request.",
+                            "code": 501
+                        },
+                        {
+                            "message": "The server recognizes the authentication credentials, but the client is not authorized to perform this request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "The client made a request that the server could not understand (for example, the request syntax is incorrect).",
+                            "code": 400
+                        },
+                        {
+                            "message": "The server is (temporarily) unavailable.",
+                            "code": 503
+                        },
+                        {
+                            "message": "The client's authentication credentials included with the request are missing or invalid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The client made a request for a resource that does not exist.",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "swaggerVersion": "1.2",
+    "basePath": "/apic-em-inventory-manager-service"
+}

@@ -1,0 +1,67 @@
+{
+    "apis": [
+        {
+            "path": "/topology/vrf/vrf-name",
+            "operations": [
+                {
+                    "responseMessages": [
+                        {
+                            "code": 200,
+                            "responseModel": "VrfNamesResult",
+                            "message": "This Request is OK"
+                        },
+                        {
+                            "code": 403,
+                            "message": "This user is Forbidden Access to this Resource"
+                        },
+                        {
+                            "code": 401,
+                            "message": "Not Authorized Yet, Credentials to be supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "No Resource Found"
+                        }
+                    ],
+                    "summary": "getVrfNames",
+                    "nickname": "getVrfNames",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "method": "GET",
+                    "notes": "This method is used to obtain the list of vrf names",
+                    "deprecated": "false",
+                    "parameters": [],
+                    "type": "VrfNamesResult"
+                }
+            ],
+            "description": "getVrfNames"
+        }
+    ],
+    "resourcePath": "/topology/vrf/vrf-name",
+    "produces": [
+        "application/json"
+    ],
+    "apiVersion": "1.0",
+    "basePath": "/topology-service",
+    "swaggerVersion": "1.2",
+    "models": {
+        "VrfNamesResult": {
+            "properties": {
+                "version": {
+                    "type": "string"
+                },
+                "response": {
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "extends": "",
+            "id": "VrfNamesResult",
+            "description": ""
+        }
+    }
+}

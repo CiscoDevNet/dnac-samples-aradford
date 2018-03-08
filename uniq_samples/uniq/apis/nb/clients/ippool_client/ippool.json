@@ -1,0 +1,505 @@
+{
+    "produces": [
+        "application/json"
+    ],
+    "apis": [
+        {
+            "path": "/ippool",
+            "description": "createIpPool",
+            "operations": [
+                {
+                    "deprecated": "false",
+                    "notes": "This API is used to create global IP address pool(s).",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "parameters": [
+                        {
+                            "name": "ipPoolInfoList",
+                            "type": "array",
+                            "items": {
+                                "$ref": "IpPoolInfo"
+                            },
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "List of IpPoolInfo objects",
+                            "paramType": "body",
+                            "defaultValue": ""
+                        },
+                        {
+                            "name": "scope",
+                            "type": "List",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "Authorization Scope for RBAC",
+                            "paramType": "header",
+                            "defaultValue": "ALL"
+                        },
+                        {
+                            "name": "username",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "requestorUsername",
+                            "paramType": "header",
+                            "defaultValue": ""
+                        }
+                    ],
+                    "nickname": "createIpPool",
+                    "summary": "Create global IP address pool(s)",
+                    "method": "POST",
+                    "type": "TaskIdResult",
+                    "responseMessages": [
+                        {
+                            "message": "This Request is OK",
+                            "code": 200,
+                            "responseModel": "TaskIdResult"
+                        },
+                        {
+                            "message": "This Request is Accepted",
+                            "code": 202
+                        },
+                        {
+                            "message": "This user is Forbidden Access to this Resource",
+                            "code": 403
+                        },
+                        {
+                            "message": "Not Authorized Yet, Credentials to be supplied",
+                            "code": 401
+                        },
+                        {
+                            "message": "No Resource Found",
+                            "code": 404
+                        }
+                    ],
+                    "consumes": [
+                        "application/json"
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/ippool",
+            "description": "getList",
+            "operations": [
+                {
+                    "deprecated": "false",
+                    "notes": "This API is used to retrieve list of configured IP address pools.",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "parameters": [
+                        {
+                            "name": "limit",
+                            "type": "string",
+                            "required": false,
+                            "allowMultiple": false,
+                            "description": "limit",
+                            "paramType": "query",
+                            "defaultValue": ""
+                        },
+                        {
+                            "name": "offset",
+                            "type": "string",
+                            "required": false,
+                            "allowMultiple": false,
+                            "description": "offset",
+                            "paramType": "query",
+                            "defaultValue": ""
+                        },
+                        {
+                            "name": "apicAppName",
+                            "type": "string",
+                            "required": false,
+                            "allowMultiple": false,
+                            "description": "Apic APP Name",
+                            "paramType": "query",
+                            "defaultValue": ""
+                        },
+                        {
+                            "name": "scope",
+                            "type": "List",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "Authorization Scope for RBAC",
+                            "paramType": "header",
+                            "defaultValue": "ALL"
+                        }
+                    ],
+                    "nickname": "getList",
+                    "summary": "Retrieves list of configured IP address pools",
+                    "method": "GET",
+                    "type": "IpPoolInfoListResult",
+                    "responseMessages": [
+                        {
+                            "message": "This Request is OK",
+                            "code": 200,
+                            "responseModel": "IpPoolInfoListResult"
+                        },
+                        {
+                            "message": "This user is Forbidden Access to this Resource",
+                            "code": 403
+                        },
+                        {
+                            "message": "Not Authorized Yet, Credentials to be supplied",
+                            "code": 401
+                        },
+                        {
+                            "message": "No Resource Found",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/ippool/count",
+            "description": "getCount",
+            "operations": [
+                {
+                    "deprecated": "false",
+                    "notes": "This API is used to retrieve the number of configured IP address pools",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "parameters": [
+                        {
+                            "name": "scope",
+                            "type": "List",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "Authorization Scope for RBAC",
+                            "paramType": "header",
+                            "defaultValue": "ALL"
+                        }
+                    ],
+                    "nickname": "getCount",
+                    "summary": "Retrieves the number of IP address pools",
+                    "method": "GET",
+                    "type": "CountResult",
+                    "responseMessages": [
+                        {
+                            "message": "This Request is OK",
+                            "code": 200,
+                            "responseModel": "CountResult"
+                        },
+                        {
+                            "message": "This user is Forbidden Access to this Resource",
+                            "code": 403
+                        },
+                        {
+                            "message": "Not Authorized Yet, Credentials to be supplied",
+                            "code": 401
+                        },
+                        {
+                            "message": "No Resource Found",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/ippool/{id}",
+            "description": "get",
+            "operations": [
+                {
+                    "deprecated": "false",
+                    "notes": "This API is used to retrieve IP address pool based on its ID",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "IP Address Pool ID",
+                            "paramType": "path",
+                            "defaultValue": ""
+                        },
+                        {
+                            "name": "scope",
+                            "type": "List",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "Authorization Scope for RBAC",
+                            "paramType": "header",
+                            "defaultValue": "ALL"
+                        }
+                    ],
+                    "nickname": "get",
+                    "summary": "Retrieves IP address pool based on its ID.",
+                    "method": "GET",
+                    "type": "IpPoolInfoResult",
+                    "responseMessages": [
+                        {
+                            "message": "This Request is OK",
+                            "code": 200,
+                            "responseModel": "IpPoolInfoResult"
+                        },
+                        {
+                            "message": "This user is Forbidden Access to this Resource",
+                            "code": 403
+                        },
+                        {
+                            "message": "Not Authorized Yet, Credentials to be supplied",
+                            "code": 401
+                        },
+                        {
+                            "message": "No Resource Found",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/ippool/{id}",
+            "description": "deleteIpPool",
+            "operations": [
+                {
+                    "deprecated": "false",
+                    "notes": "This API is used to delete global IP address pool based on its ID.",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "IP Address Pool ID",
+                            "paramType": "path",
+                            "defaultValue": ""
+                        },
+                        {
+                            "name": "scope",
+                            "type": "List",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "Authorization Scope for RBAC",
+                            "paramType": "header",
+                            "defaultValue": "ALL"
+                        },
+                        {
+                            "name": "username",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "requestorUsername",
+                            "paramType": "header",
+                            "defaultValue": ""
+                        }
+                    ],
+                    "nickname": "deleteIpPool",
+                    "summary": "Deletes global IP address pool by ID",
+                    "method": "DELETE",
+                    "type": "TaskIdResult",
+                    "responseMessages": [
+                        {
+                            "message": "This Request is OK",
+                            "code": 200,
+                            "responseModel": "TaskIdResult"
+                        },
+                        {
+                            "message": "This user is Forbidden Access to this Resource",
+                            "code": 403
+                        },
+                        {
+                            "message": "Not Authorized Yet, Credentials to be supplied",
+                            "code": 401
+                        },
+                        {
+                            "message": "No Resource Found",
+                            "code": 404
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "models": {
+        "IpPoolInfoListResult": {
+            "extends": "",
+            "description": "",
+            "id": "IpPoolInfoListResult",
+            "properties": {
+                "response": {
+                    "items": {
+                        "$ref": "IpPoolInfo"
+                    },
+                    "type": "array"
+                },
+                "version": {
+                    "type": "string"
+                }
+            }
+        },
+        "TaskIdResult": {
+            "extends": "",
+            "description": "",
+            "id": "TaskIdResult",
+            "properties": {
+                "response": {
+                    "$ref": "TaskIdResponse"
+                },
+                "version": {
+                    "type": "string"
+                }
+            }
+        },
+        "TaskId": {
+            "extends": "",
+            "description": "",
+            "id": "TaskId",
+            "properties": {}
+        },
+        "IpPoolInfo": {
+            "extends": "",
+            "required": [
+                "ipPool"
+            ],
+            "description": "",
+            "id": "IpPoolInfo",
+            "properties": {
+                "gateway": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Gateway IP address list",
+                    "type": "array"
+                },
+                "createTime": {
+                    "description": "IP Address Pool creation time",
+                    "format": "int64",
+                    "type": "integer"
+                },
+                "ipPoolName": {
+                    "description": "IP Address Pool name",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "UUID of IP Address Pool",
+                    "type": "string"
+                },
+                "usagePercentage": {
+                    "description": "Current usage percentage of IP Address Pool",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "interAppOverlap": {
+                    "description": "If true then overlapping IP pool is supported between APIC-EM Apps. Default value is false",
+                    "type": "boolean"
+                },
+                "freeIpCount": {
+                    "description": "IP Address Pool free IP count",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "endAddress": {
+                    "description": "Last IP address in IP Address Pool",
+                    "type": "string"
+                },
+                "nextAddress": {
+                    "description": "Next available IP address in IP Address Pool",
+                    "type": "string"
+                },
+                "lastUpdateTime": {
+                    "description": "IP Address Pool last updated time",
+                    "format": "int64",
+                    "type": "integer"
+                },
+                "excludeNetworkBroadcastAddress": {
+                    "description": "If true then network and broadcast IP address will not be used in the usable range. Default value is false",
+                    "type": "boolean"
+                },
+                "creationOrder": {
+                    "description": "Creation order of IP Address Pool",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "startAddress": {
+                    "description": "First IP address in IP Address Pool",
+                    "type": "string"
+                },
+                "dhcpServerIp": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "DHCP server hostname or IP address list",
+                    "type": "array"
+                },
+                "apicAppName": {
+                    "description": "APIC-EM App Name",
+                    "type": "string"
+                },
+                "shared": {
+                    "description": "If true then duplicate/overlapping pool is supported. Default value is false",
+                    "type": "boolean"
+                },
+                "parentId": {
+                    "description": "Parent IP Address Pool UUID",
+                    "type": "string"
+                },
+                "role": {
+                    "description": "Used to group IP Address Pools",
+                    "type": "string"
+                },
+                "ipPool": {
+                    "description": "IP subnet in CIDR format",
+                    "type": "string"
+                }
+            }
+        },
+        "IpPoolInfoResult": {
+            "extends": "",
+            "description": "",
+            "id": "IpPoolInfoResult",
+            "properties": {
+                "response": {
+                    "$ref": "IpPoolInfo"
+                },
+                "version": {
+                    "type": "string"
+                }
+            }
+        },
+        "CountResult": {
+            "extends": "",
+            "description": "",
+            "id": "CountResult",
+            "properties": {
+                "response": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "version": {
+                    "type": "string"
+                }
+            }
+        },
+        "TaskIdResponse": {
+            "extends": "",
+            "description": "",
+            "id": "TaskIdResponse",
+            "properties": {
+                "taskId": {
+                    "$ref": "TaskId"
+                },
+                "url": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "apiVersion": "1.0",
+    "basePath": "/",
+    "consumes": [
+        "application/json"
+    ],
+    "resourcePath": "/ippool",
+    "swaggerVersion": "1.2"
+}
