@@ -52,6 +52,8 @@ if __name__ == "__main__":
     if args.v:
         logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
+    if not args.ip and not args.mac:
+        parser.error('Either --ip or --mac is required.')
 
     host = get_host(ip=args.ip, mac=args.mac)
     print_host(host['response'][0])
